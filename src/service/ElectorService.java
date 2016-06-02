@@ -48,7 +48,7 @@ public class ElectorService implements Services {
         System.out.println("Digite o título do eleitor: ");
         int title = pao.nextInt();
 
-        Elector e = verifyExistence(title)
+        Elector e = verifyExistence(title);
         if(e != null){
             electors.remove(e);
         }

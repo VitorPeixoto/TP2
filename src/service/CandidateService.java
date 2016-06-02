@@ -7,7 +7,6 @@ import entities.Party;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -22,12 +21,11 @@ public class CandidateService implements Services {
 
     @Override
     public void register() {
-
         System.out.println("(1)Prefeito ou (2)Vereador:");
         int x = pao.nextInt();
         switch(x){
             case 1:
-                System.out.println("PREFEITO");
+                /*System.out.println("PREFEITO");
                 System.out.println("Codigo: ");
                 int newCode = pao.nextInt();
                 System.out.println("Nome: ");
@@ -39,7 +37,7 @@ public class CandidateService implements Services {
                 Date newDate = new Date(brazilianToAmerican(nDate)); // Conversao de string em data
                 System.out.println("Partido: ");
                 Party newParty = new Party(pao.next()); //Verificar se o partido existe
-                PartyService.verifyExistence(newParty);
+                PartyService.returnExisting(newParty);
 
                 System.out.println("VICE-PREFEITO");
                 System.out.println("Codigo: ");
@@ -53,7 +51,7 @@ public class CandidateService implements Services {
                 Date novoDate = new Date(brazilianToAmerican(date)); // Conversao de string em data
                 System.out.println("Partido: ");
                 Party novoParty = new Party(pao.next()); // Verificar se o partido existe
-                PartyService.verifyExistence(novoParty);
+                PartyService.returnExisting(novoParty);
 
                 Mayor m = new Mayor(newCode,newName,newMail,newDate,newParty,novoCode,novoName,novoMail,novoDate,novoParty);
 
@@ -63,7 +61,7 @@ public class CandidateService implements Services {
                 else{
                     candidates.add(m);
                     System.out.println("Prefeito registrado com sucesso.");
-                }
+                }*/
 
                 break;
             case 2:
@@ -79,10 +77,10 @@ public class CandidateService implements Services {
                 Date newerDate = new Date(brazilianToAmerican(newestDate)); // Conversao de string em data
                 System.out.println("Partido: ");
                 Party newerParty = new Party(pao.next());
-                PartyService.verifyExistence(newerParty);
+//                PartyService.returnExisting(newerParty);
 
                 Councilman c = new Councilman(newerCode,newerName,newerMail,newerDate,newerParty);
-                if(verifyExistence(c)){
+                if(verifyExistence(newerCode)){
                     System.out.println("Código já registrado.");
                 }
                 else{
@@ -103,7 +101,7 @@ public class CandidateService implements Services {
             case 1:
                 System.out.println("Digite o código do prefeito: ");
                 int code = pao.nextInt();
-                Mayor m = (Mayor)verifyExistence(code);
+                Mayor m = (Mayor)returnExisting(code);
                 if (m != null) {
                     candidates.remove(m);
                     System.out.println("Prefeito deletado com sucesso.");
@@ -115,7 +113,7 @@ public class CandidateService implements Services {
             case 2:
                 System.out.println("Digite o código do prefeito: ");
                 int newcode = pao.nextInt();
-                Councilman c = (Councilman) verifyExistence(newcode);
+                Councilman c = (Councilman) returnExisting(newcode);
                 if (c != null) {
                     candidates.remove(c);
                     System.out.println("Vereador deletado com sucesso.");
@@ -143,16 +141,16 @@ public class CandidateService implements Services {
 
     }
 
-    public static boolean verifyExistence(Candidate candidate){
+    public static boolean verifyExistence(int code){
         for (Candidate c : candidates) {
-            if(c.getCode() == candidate.getCode()) {
+            if(c.getCode() == code) {
                 return true;
             }
         }
         return false;
     }
 
-    public static Candidate verifyExistence(int code){
+    public static Candidate returnExisting(int code){
         for(Candidate c : candidates) {
             if(c.getCode() == code){
                 return c;

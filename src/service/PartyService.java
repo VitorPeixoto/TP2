@@ -21,12 +21,11 @@ public class PartyService implements Services {
         System.out.println("Sigla do partido: ");
         String initials = pao.next();
 
-        Party p = new Party(initials);
-        if(verifyExistence(p)) {
+        if(verifyExistence(initials)) {
             System.out.println("Partido já registrado.");
         }
         else{
-            parties.add(p);
+            parties.add(new Party(initials));
         }
     }
 
@@ -34,7 +33,7 @@ public class PartyService implements Services {
     public void delete() {
         System.out.println("Digite a sigla do partido: ");
         String initials = pao.next();
-        Party p = verifyExistence(initials);
+        Party p = returnExisting(initials);
 
         if(p != null) {
             parties.remove(p);
@@ -59,16 +58,16 @@ public class PartyService implements Services {
 
     }
 
-    public static boolean verifyExistence(Party party){
+    public static boolean verifyExistence(String initials){
         for (Party p : parties) {
-            if(p.getInitials().equals(party.getInitials())) {
+            if(p.getInitials().equals(initials)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static Party verifyExistence(String initials){
+    public static Party returnExisting(String initials){
         for(Party p : parties){
             if(p.getInitials().equals(initials)){
                 return p;
@@ -76,5 +75,4 @@ public class PartyService implements Services {
         }
         return null;
     }
-}
 }
