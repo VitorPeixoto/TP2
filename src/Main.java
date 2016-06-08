@@ -7,7 +7,8 @@ import service.PartyService;
  */
 public class Main {
     private static final String[] mainMenu = new String[] {"Módulo do Administrador",
-                                                           "Módulo da Eleição"};
+                                                           "Módulo da Eleição",
+                                                           "Exit"};
     private static final String[] managerMenu = new String[] {"Parties",
                                                               "Candidates",
                                                               "Electors",
@@ -15,6 +16,13 @@ public class Main {
                                                               "Main Menu"};
     private static final String[] electionMenu = new String[] {"Start Election",
                                                                "Main Menu"};
+    private static final String[] servicesMenu = new String[] {"Register",
+                                                               "Delete",
+                                                               "List",
+                                                               "Search",
+                                                               "Update",
+                                                               "Main Menu"};
+
     public static void main(String[] args) {
         CandidateService candidateService = new CandidateService();
         PartyService     partyService     = new PartyService();
