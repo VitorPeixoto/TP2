@@ -17,20 +17,20 @@ public class Main {
 
     private static final String[] mainMenuEntries = new String[] {"Módulo do Administrador",
                                                                   "Módulo da Eleição",
-                                                                  "Exit"};
-    private static final String[] managerMenuEntries = new String[] {"Parties",
-                                                                     "Candidates",
-                                                                     "Electors",
-                                                                     "Reports",
-                                                                     "Main Menu"};
-    private static final String[] electionMenuEntries = new String[] {"Start Election",
-                                                                      "Main Menu"};
-    private static final String[] servicesMenuEntries = new String[] {"Register",
-                                                                      "Delete",
-                                                                      "List",
-                                                                      "Search",
-                                                                      "Update",
-                                                                      "Main Menu"};
+                                                                  "Sair"};
+    private static final String[] managerMenuEntries = new String[] {"Partidos",
+                                                                     "Candidatos",
+                                                                     "Eleitores",
+                                                                     "Relatórios",
+                                                                     "Menu Principal"};
+    private static final String[] electionMenuEntries = new String[] {"Começar Eleição",
+                                                                      "Menu Principal"};
+    private static final String[] servicesMenuEntries = new String[] {"Registrar",
+                                                                      "Excluir",
+                                                                      "Listar",
+                                                                      "Pesquisar",
+                                                                      "Alterar",
+                                                                      "Menu Anterior"};
 
     public static void main(String[] args) {
 

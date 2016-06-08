@@ -77,6 +77,7 @@ public class CandidateService implements Services {
                 Date newerDate = new Date(brazilianToAmerican(newestDate)); // Conversao de string em data
                 System.out.println("Partido: ");
                 Party newerParty = new Party(pao.next());
+//              @TODO finalizar a checagem de partido
 //                PartyService.returnExisting(newerParty);
 
                 Councilman c = new Councilman(newerCode,newerName,newerMail,newerDate,newerParty);
