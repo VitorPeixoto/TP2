@@ -1,37 +1,107 @@
 import service.CandidateService;
 import service.ElectorService;
 import service.PartyService;
+import service.Services;
+
+import java.security.Provider;
+import java.util.Scanner;
 
 /**
  * Created by Peixoto on 02/06/2016.
  */
 public class Main {
-    private static final String[] mainMenu = new String[] {"Módulo do Administrador",
-                                                           "Módulo da Eleição",
-                                                           "Exit"};
-    private static final String[] managerMenu = new String[] {"Parties",
-                                                              "Candidates",
-                                                              "Electors",
-                                                              "Reports",
-                                                              "Main Menu"};
-    private static final String[] electionMenu = new String[] {"Start Election",
-                                                               "Main Menu"};
-    private static final String[] servicesMenu = new String[] {"Register",
-                                                               "Delete",
-                                                               "List",
-                                                               "Search",
-                                                               "Update",
-                                                               "Main Menu"};
+    private static Scanner pao = Services.pao;
+    private static CandidateService candidateService = new CandidateService();
+    private static PartyService     partyService     = new PartyService();
+    private static ElectorService   electorService   = new ElectorService();
+
+    private static final String[] mainMenuEntries = new String[] {"Módulo do Administrador",
+                                                                  "Módulo da Eleição",
+                                                                  "Exit"};
+    private static final String[] managerMenuEntries = new String[] {"Parties",
+                                                                     "Candidates",
+                                                                     "Electors",
+                                                                     "Reports",
+                                                                     "Main Menu"};
+    private static final String[] electionMenuEntries = new String[] {"Start Election",
+                                                                      "Main Menu"};
+    private static final String[] servicesMenuEntries = new String[] {"Register",
+                                                                      "Delete",
+                                                                      "List",
+                                                                      "Search",
+                                                                      "Update",
+                                                                      "Main Menu"};
 
     public static void main(String[] args) {
-        CandidateService candidateService = new CandidateService();
-        PartyService     partyService     = new PartyService();
-        ElectorService   electorService   = new ElectorService();
 
-        printMenu("Eleições", mainMenu);
+        int option = 0;
+        while(option != 3) {
+            option = printMenu("Eleições", mainMenuEntries);
+
+            switch (option) {
+                case 1:
+                    managerMenu();
+                    break;
+                case 2:
+                    electionMenu();
+                    break;
+            }
+        }
     }
 
-    public static void printMenu(String menuTitle, String[] entries) {
+    private static void electionMenu() {
+        //@TODO fazer o menu de eleição
+    }
+
+    private static void managerMenu() {
+        int managerOption = 0,
+            serviceOption = 0;
+        while(managerOption != 5) {
+            managerOption = printMenu("Administração", managerMenuEntries);
+
+            switch (managerOption) {
+                case 1:
+                    serviceOption = printMenu("Partidos", servicesMenuEntries);
+                    callService("Partidos", partyService, serviceOption);
+                    break;
+                case 2:
+                    serviceOption = printMenu("Candidatos", servicesMenuEntries);
+                    callService("Candidatos", candidateService, serviceOption);
+                    break;
+                case 3:
+                    serviceOption = printMenu("Eleitores", servicesMenuEntries);
+                    callService("Eleitores", electorService, serviceOption);
+                    break;
+                case 4:
+                    //@TODO fazer os relatórios
+                    break;
+            }
+        }
+    }
+
+    private static void callService(String serviceName, Services service, int serviceOption) {
+        while(serviceOption != 6) {
+            switch (serviceOption) {
+                case 1:
+                    service.register();
+                    break;
+                case 2:
+                    service.delete();
+                    break;
+                case 3:
+                    service.list();
+                    break;
+                case 4:
+                    service.search();
+                    break;
+                case 5:
+                    service.update();
+            }
+            serviceOption = printMenu(serviceName, servicesMenuEntries);
+        }
+    }
+
+    public static int printMenu(String menuTitle, String[] entries) {
         int size        = 30,
             spacingSize = size + 18;
 
@@ -45,6 +115,7 @@ public class Main {
         }
         System.out.println("╚"+middle+"╝");
         System.out.print("> Opção: ");
+        return pao.nextInt();
     }
 
     private static String repeat(String str, int count) {
