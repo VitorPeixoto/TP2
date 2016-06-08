@@ -41,9 +41,9 @@ public class CandidateService implements Services {
                 String mayorBirth   = pao.next();
                 Date mayorBirthDate = new Date(brazilianToAmerican(mayorBirth)); // Conversao de string em data
 
-                System.out.println("Partido: ");
-                String mayorPartyInitials = pao.next(); //Verificar se o partido existe
-                Party mayorParty = PartyService.returnExisting(mayorPartyInitials);
+                System.out.println("Número do partido: ");
+                int mayorPartyNumber = pao.nextInt(); //Verificar se o partido existe
+                Party mayorParty = PartyService.returnExisting(mayorPartyNumber);
                 if(mayorParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
@@ -63,9 +63,9 @@ public class CandidateService implements Services {
                 String viceMayorBirth   = pao.next();
                 Date viceMayorBirthDate = new Date(brazilianToAmerican(viceMayorBirth)); // Conversao de string em data
 
-                System.out.println("Partido: ");
-                String viceMayorPartyInitials = pao.next(); //Verificar se o partido existe
-                Party viceMayorParty          = PartyService.returnExisting(viceMayorPartyInitials);
+                System.out.println("Número do partido: ");
+                int viceMayorPartyNumber = pao.nextInt(); //Verificar se o partido existe
+                Party viceMayorParty          = PartyService.returnExisting(viceMayorPartyNumber);
                 if(viceMayorParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
@@ -96,9 +96,9 @@ public class CandidateService implements Services {
                 String concilmanBirth   = pao.next();
                 Date councilmanBirthDate = new Date(brazilianToAmerican(concilmanBirth)); // Conversao de string em data
 
-                System.out.println("Partido: ");
-                String councilmanPartyInitials = pao.next();
-                Party councilmanParty          = PartyService.returnExisting(councilmanPartyInitials);
+                System.out.println("Número do partido: ");
+                int councilmanPartyNumber = pao.nextInt();
+                Party councilmanParty          = PartyService.returnExisting(councilmanPartyNumber);
                 if(councilmanParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;

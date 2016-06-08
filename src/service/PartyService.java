@@ -18,22 +18,29 @@ public class PartyService implements Services {
     @Override
     public void register() {
         System.out.println("PARTIDO");
-        System.out.println("Sigla do partido: ");
-        String initials = pao.next();
 
-        if(verifyExistence(initials)) {
+        System.out.println("Número do partido: ");
+        int partyNumber = pao.nextInt();
+
+        System.out.println("Sigla do partido: ");
+        String partyInitials = pao.next();
+
+        System.out.println("Nome do Partido: ");
+        String partyName = pao.next();
+
+        if(verifyExistence(partyNumber)) {
             System.out.println("Partido já registrado.");
         }
         else{
-            parties.add(new Party(initials));
+            parties.add(new Party(partyNumber, partyInitials, partyName));
         }
     }
 
     @Override
     public void delete() {
-        System.out.println("Digite a sigla do partido: ");
-        String initials = pao.next();
-        Party p = returnExisting(initials);
+        System.out.println("Digite o número do partido: ");
+        int number = pao.nextInt();
+        Party p = returnExisting(number);
 
         if(p != null) {
             parties.remove(p);
@@ -58,18 +65,18 @@ public class PartyService implements Services {
 
     }
 
-    public static boolean verifyExistence(String initials){
+    public static boolean verifyExistence(int number){
         for (Party p : parties) {
-            if(p.getInitials().equals(initials)) {
+            if(p.getNumber() == number) {
                 return true;
             }
         }
         return false;
     }
 
-    public static Party returnExisting(String initials){
+    public static Party returnExisting(int number){
         for(Party p : parties){
-            if(p.getInitials().equals(initials)){
+            if(p.getNumber() == number){
                 return p;
             }
         }
