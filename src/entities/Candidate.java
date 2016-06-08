@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Peixoto on 24/05/2016.
  */
-public abstract class Candidate  {
+public abstract class Candidate {
     private int code;
     private String name,
                    mail;

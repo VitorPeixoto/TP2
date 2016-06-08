@@ -17,4 +17,28 @@ public interface Services {
         return brasilianFormatedString.substring(3, 5) + "/" + brasilianFormatedString.substring(0, 2) + "/" + brasilianFormatedString.substring(6, brasilianFormatedString.length());
     }
 
+    static int printMenu(String menuTitle, String[] entries) {
+        int size        = 30,
+            spacingSize = size + 18;
+
+        String middle = (repeat("═", size));
+
+        System.out.println("╔"+middle+"╗");
+        System.out.println("║"+menuTitle+repeat(" ", spacingSize-menuTitle.length())+"║");
+        System.out.println("╠"+middle+"╣");
+        for (int i = 0; i < entries.length; i++) {
+            System.out.println("║ "+(i+1)+" - "+entries[i]+repeat(" ", spacingSize-entries[i].length()-5)+"║");
+        }
+        System.out.println("╚"+middle+"╝");
+        System.out.print("> Opção: ");
+        return pao.nextInt();
+    }
+
+    static String repeat(String str, int count) {
+        String returnString = str;
+        for (int i = 1; i < count; i++) {
+            returnString += str;
+        }
+        return returnString;
+    }
 }

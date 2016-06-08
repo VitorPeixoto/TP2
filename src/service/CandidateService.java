@@ -15,76 +15,100 @@ import java.util.regex.Pattern;
 public class CandidateService implements Services {
     private static ArrayList<Candidate> candidates;
 
+    private final String[] candidatesMenu = {"Prefeito",
+                                             "Vereador"};
+
     static {
         pao.useDelimiter(Pattern.compile("[\\n;]"));
     }
 
     @Override
     public void register() {
-        System.out.println("(1)Prefeito ou (2)Vereador:");
-        int x = pao.nextInt();
+        int x = Services.printMenu("Candidatos", candidatesMenu);
         switch(x){
             case 1:
-                /*System.out.println("PREFEITO");
-                System.out.println("Codigo: ");
-                int newCode = pao.nextInt();
+                System.out.println("PREFEITO");
+                System.out.print("Codigo: ");
+                int mayorCode = pao.nextInt();
+
                 System.out.println("Nome: ");
-                String newName = pao.next();
+                String mayorName = pao.next();
+
                 System.out.println("E-mail: ");
-                String newMail = pao.next();
+                String mayorMail = pao.next();
+
                 System.out.println("Data de Nascimento: ");
-                String nDate = pao.next();
-                Date newDate = new Date(brazilianToAmerican(nDate)); // Conversao de string em data
+                String mayorBirth   = pao.next();
+                Date mayorBirthDate = new Date(brazilianToAmerican(mayorBirth)); // Conversao de string em data
+
                 System.out.println("Partido: ");
-                Party newParty = new Party(pao.next()); //Verificar se o partido existe
-                PartyService.returnExisting(newParty);
+                String mayorPartyInitials = pao.next(); //Verificar se o partido existe
+                Party mayorParty = PartyService.returnExisting(mayorPartyInitials);
+                if(mayorParty == null) {
+                    System.out.println("Partido não encontrado.");
+                    return;
+                }
 
                 System.out.println("VICE-PREFEITO");
                 System.out.println("Codigo: ");
-                int novoCode = pao.nextInt();
+                int viceMayorCode = pao.nextInt();
+
                 System.out.println("Nome: ");
-                String novoName = pao.next();
+                String viceMayorName = pao.next();
+
                 System.out.println("E-mail: ");
-                String novoMail = pao.next();
+                String viceMayorMail = pao.next();
+
                 System.out.println("Data de Nascimento: ");
-                String date = pao.next();
-                Date novoDate = new Date(brazilianToAmerican(date)); // Conversao de string em data
+                String viceMayorBirth   = pao.next();
+                Date viceMayorBirthDate = new Date(brazilianToAmerican(viceMayorBirth)); // Conversao de string em data
+
                 System.out.println("Partido: ");
-                Party novoParty = new Party(pao.next()); // Verificar se o partido existe
-                PartyService.returnExisting(novoParty);
+                String viceMayorPartyInitials = pao.next(); //Verificar se o partido existe
+                Party viceMayorParty          = PartyService.returnExisting(viceMayorPartyInitials);
+                if(viceMayorParty == null) {
+                    System.out.println("Partido não encontrado.");
+                    return;
+                }
 
-                Mayor m = new Mayor(newCode,newName,newMail,newDate,newParty,novoCode,novoName,novoMail,novoDate,novoParty);
-
-                if(verifyExistence(m)){
-                    System.out.println("Código já registrado.");
+                if(CandidateService.verifyExistence(mayorCode)){
+                    System.out.println("Candidato já registrado.");
                 }
                 else{
+                    Mayor m = new Mayor(mayorCode, mayorName, mayorMail, mayorBirthDate, mayorParty,
+                                        viceMayorCode, viceMayorName, viceMayorMail, viceMayorBirthDate, viceMayorParty);
                     candidates.add(m);
                     System.out.println("Prefeito registrado com sucesso.");
-                }*/
-
+                }
                 break;
             case 2:
                 System.out.println("VEREADOR");
                 System.out.println("Codigo: ");
-                int newerCode = pao.nextInt();
-                System.out.println("Nome: ");
-                String newerName = pao.next();
-                System.out.println("E-mail: ");
-                String newerMail = pao.next();
-                System.out.println("Data de Nascimento: ");
-                String newestDate = pao.next();
-                Date newerDate = new Date(brazilianToAmerican(newestDate)); // Conversao de string em data
-                System.out.println("Partido: ");
-                Party newerParty = new Party(pao.next());
-//              @TODO finalizar a checagem de partido
-//                PartyService.returnExisting(newerParty);
+                int councilmanCode = pao.nextInt();
 
-                Councilman c = new Councilman(newerCode,newerName,newerMail,newerDate,newerParty);
-                if(verifyExistence(newerCode)){
-                    System.out.println("Código já registrado.");
+                System.out.println("Nome: ");
+                String councilmanName = pao.next();
+
+                System.out.println("E-mail: ");
+                String councilmanMail = pao.next();
+
+                System.out.println("Data de Nascimento: ");
+                String concilmanBirth   = pao.next();
+                Date councilmanBirthDate = new Date(brazilianToAmerican(concilmanBirth)); // Conversao de string em data
+
+                System.out.println("Partido: ");
+                String councilmanPartyInitials = pao.next();
+                Party councilmanParty          = PartyService.returnExisting(councilmanPartyInitials);
+                if(councilmanParty == null) {
+                    System.out.println("Partido não encontrado.");
+                    return;
+                }
+
+                if(verifyExistence(councilmanCode)){
+                    System.out.println("Vereador já registrado.");
                 }
                 else{
+                    Councilman c = new Councilman(councilmanCode, councilmanName, councilmanMail, councilmanBirthDate, councilmanParty);
                     candidates.add(c);
                     System.out.println("Vereador registrado com sucesso.");
                 }
@@ -96,30 +120,29 @@ public class CandidateService implements Services {
 
     @Override
     public void delete() {
-        System.out.println("(1)Prefeito ou (2)Vereador:");
-        int x = pao.nextInt();
+        int x = Services.printMenu("Candidatos", candidatesMenu);
         switch (x) {
             case 1:
                 System.out.println("Digite o código do prefeito: ");
-                int code = pao.nextInt();
-                Mayor m = (Mayor)returnExisting(code);
+                int mayorCode = pao.nextInt();
+
+                Mayor m = (Mayor)returnExisting(mayorCode);
                 if (m != null) {
                     candidates.remove(m);
                     System.out.println("Prefeito deletado com sucesso.");
                 } else {
-                    System.out.println("Código não está registrado.");
+                    System.out.println("Prefeito não está registrado.");
                 }
                 break;
-
             case 2:
-                System.out.println("Digite o código do prefeito: ");
-                int newcode = pao.nextInt();
-                Councilman c = (Councilman) returnExisting(newcode);
+                System.out.println("Digite o código do vereador: ");
+                int councilmanCode = pao.nextInt();
+                Councilman c = (Councilman) returnExisting(councilmanCode);
                 if (c != null) {
                     candidates.remove(c);
                     System.out.println("Vereador deletado com sucesso.");
                 } else {
-                    System.out.println("Código não está registrado.");
+                    System.out.println("Vereador não está registrado.");
                 }
                 break;
             default:
@@ -127,6 +150,7 @@ public class CandidateService implements Services {
 
         }
     }
+
     @Override
     public void list() {
 

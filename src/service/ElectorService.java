@@ -20,23 +20,26 @@ public class ElectorService implements Services {
     public void register() {
         System.out.println("ELEITOR");
         System.out.println("Nome do eleitor: ");
-        String name = pao.next();
+        String electorName = pao.next();
+
         System.out.println("Data de nascimento: ");
-        String birthDateString = pao.next();
-        Date newDate = new Date(brazilianToAmerican(birthDateString)); // Conversao de string em data
+        String electorBirth = pao.next();
+        Date electorBirthDate = new Date(brazilianToAmerican(electorBirth)); // Conversao de string em data
+
         System.out.println("Título: ");
-        int title = pao.nextInt();
+        int electorTitle = pao.nextInt();
+
         System.out.println("Zona: ");
-        int zone = pao.nextInt();
+        int electorZone = pao.nextInt();
+
         System.out.println("Seção: ");
-        int section = pao.nextInt();
+        int electorSection = pao.nextInt();
 
-        Elector e = new Elector(name,newDate,title,zone,section);
-
-        if(verifyExistence(e)) {
+        if(verifyExistence(electorTitle)) {
             System.out.println("Título de eleitor já registrado.");
         }
         else{
+            Elector e = new Elector(electorName, electorBirthDate, electorTitle, electorZone, electorSection);
             electors.add(e);
             System.out.println("Eleitor registrado com sucesso.");
         }
@@ -48,12 +51,12 @@ public class ElectorService implements Services {
         System.out.println("Digite o título do eleitor: ");
         int title = pao.nextInt();
 
-        Elector e = verifyExistence(title);
+        Elector e = returnExistant(title);
         if(e != null){
             electors.remove(e);
         }
         else{
-            System.out.println("Título não encontrado.");
+            System.out.println("Eleitor não encontrado.");
         }
     }
 
@@ -72,16 +75,16 @@ public class ElectorService implements Services {
 
     }
 
-    public static boolean verifyExistence(Elector elector){
+    public static boolean verifyExistence(int title){
         for (Elector e : electors) {
-            if(e.getTitle() == elector.getTitle()) {
+            if(e.getTitle() == title) {
                 return true;
             }
         }
         return false;
     }
 
-    public static Elector verifyExistence(int title){
+    public static Elector returnExistant(int title){
         for(Elector e : electors) {
             if(e.getTitle() == title){
                 return e;
