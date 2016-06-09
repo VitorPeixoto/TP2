@@ -72,7 +72,37 @@ public class ElectorService implements Services {
 
     @Override
     public void update() {
+        System.out.println("Digite o número do Título do eleitor: ");
+        int title = pao.nextInt();
 
+        for(Elector e: electors){
+            if(e.getTitle() == title){
+                System.out.println("Para cada campo, digite o novo elemento ou \"-1\" para pular. ");
+                System.out.println("Nome: ");
+                String name = pao.next();
+                if(!name.equals("-1")){
+                    e.setName(name);
+                }
+                System.out.println("Data de Nascimento: ");
+                String electorDate = pao.next();
+                if(!electorDate.equals("-1")){
+                    Date electorBirthDate = new Date(brazilianToAmerican(electorDate)); // Conversao de string em data
+                    e.setBirthDate(electorBirthDate);
+                }
+                System.out.println("Zona: ");
+                int zone = pao.nextInt();
+                if(zone != -1){
+                    e.setZone(zone);
+                }
+                System.out.println("Seção: ");
+                int section = pao.nextInt();
+                if(section != -1){
+                    e.setSection(section);
+                }
+            }
+        }
+
+        System.out.println("Alteração concluída!");
     }
 
     public static boolean verifyExistence(int title){
