@@ -153,12 +153,23 @@ public class CandidateService implements Services {
 
     @Override
     public void list() {
-
+        for(Candidate c: candidates){
+            if(c instanceof Mayor){
+                System.out.println("Prefeito " + c.getName()+" : " + c.getCode());
+            }else {
+                System.out.println("Vereador: " + c.getName() + " : " + c.getCode());
+            }
+        }
     }
 
     @Override
     public void search() {
+        System.out.println("Nome do candidato: ");
+        String candidate = pao.next();
 
+       // for(Candidate c: candidates){
+            //if(c.getName().equals)
+        }
     }
 
     @Override
@@ -168,7 +179,7 @@ public class CandidateService implements Services {
 
     public static boolean verifyExistence(int code){
         for (Candidate c : candidates) {
-            if(c.getCode() == code) {
+            if(c.getCode()  == code) {
                 return true;
             }
         }
