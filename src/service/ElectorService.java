@@ -99,6 +99,7 @@ public class ElectorService implements Services {
                 if(section != -1){
                     e.setSection(section);
                 }
+                break;
             }
         }
 

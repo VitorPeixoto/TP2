@@ -174,7 +174,81 @@ public class CandidateService implements Services {
 
     @Override
     public void update() {
+        System.out.println("Digite o código do Prefeito ou Vereador: ");
+        int code = pao.nextInt();
+        for(Candidate c: candidates) {
+            if(c.getCode() == code) {
+                System.out.println("Para cada campo, digite o novo elemento ou \"-1\" para pular. ");
+                if (c instanceof Mayor) {
+                    System.out.println("PREFEITO");
 
+                    System.out.println("Nome: ");
+                    String name = pao.next();
+                    if(!name.equals("-1")) {
+                        c.setName(name);
+                    }
+                    System.out.println("E-mail: ");
+                    String mail = pao.next();
+                    if(!mail.equals("-1")) {
+                        c.setMail(mail);
+                    }
+                    System.out.println("Data de Nascimento: ");
+                    String date = pao.next();
+                    if(!date.equals("-1")) {
+                        Date MayorBirthDate = new Date(brazilianToAmerican(date)); // Conversao de string em data
+                        c.setBirthDate(MayorBirthDate);
+                    }
+                    System.out.println("Número do Partido: ");
+                    int MayorPartyNumber = pao.nextInt();
+                    if(MayorPartyNumber != -1) {
+                        Party MayorParty = PartyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
+                        if (MayorParty == null) {
+                            System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
+                        } else {
+                            c.setParty(MayorParty);
+                        }
+                    }
+                    /*   Verificar o que fazer --------------------------------------------------------------
+                    System.out.println("Nome do Vice-Prefeito: ");
+                    System.out.println("E-mail do Vice-Prefeito: ");
+                    System.out.println("Data de Nascimento do Vice-Prefeito: ");
+                    System.out.println("Partido do Vice-Prefeito: ");
+                    -----------------------------------------------------------------------------------------
+                    */
+                }else {
+                    System.out.println("VEREADOR");
+
+                    System.out.println("Nome: ");
+                    String name = pao.next();
+                    if(!name.equals("-1")) {
+                        c.setName(name);
+                    }
+                    System.out.println("E-mail: ");
+                    String mail = pao.next();
+                    if(!mail.equals("-1")) {
+                        c.setMail(mail);
+                    }
+                    System.out.println("Data de Nascimento: ");
+                    String date = pao.next();
+                    if(!date.equals("-1")) {
+                        Date CouncilmanBirthDate = new Date(brazilianToAmerican(date)); // Conversao de string em data
+                        c.setBirthDate(CouncilmanBirthDate);
+                    }
+                    System.out.println("Partido: ");
+                    int CouncilmanPartyNumber = pao.nextInt();
+                    if(CouncilmanPartyNumber != -1) {
+                        Party CouncilmanParty = PartyService.returnExisting(CouncilmanPartyNumber);//Verificar se o partido existe
+                        if (CouncilmanParty == null) {
+                            System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
+                        } else {
+                            c.setParty(CouncilmanParty);
+                        }
+                    } 
+
+                }
+                System.out.println("Alteração concluída!");
+            }
+        }
     }
 
     public static boolean verifyExistence(int code){
