@@ -155,9 +155,9 @@ public class CandidateService implements Services {
     public void list() {
         for(Candidate c: candidates){
             if(c instanceof Mayor){
-                System.out.println("Prefeito " + c.getName()+" : " + c.getCode());
+                System.out.println(((Mayor) c).toString());
             }else {
-                System.out.println("Vereador: " + c.getName() + " : " + c.getCode());
+                System.out.println(((Councilman) c).toString());
             }
         }
     }
@@ -165,10 +165,18 @@ public class CandidateService implements Services {
     @Override
     public void search() {
         System.out.println("Nome do candidato: ");
-        String candidate = pao.next();
+        String name = pao.next();
 
-       // for(Candidate c: candidates){
-            //if(c.getName().equals)
+       for(Candidate c: candidates){
+            if(c.getName().equals(name)){
+                if(c instanceof Mayor){
+                    System.out.println(((Mayor) c).toString());
+                    System.out.println("Data de Nascimento: "+ c.getBirthDate());
+                }else{
+                    System.out.println(((Councilman) c).toString());
+                    System.out.println("Data de Nascimento: "+ c.getBirthDate());
+                }
+            }
         }
     }
 

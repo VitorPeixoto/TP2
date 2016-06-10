@@ -27,4 +27,8 @@ public class Mayor extends Candidate{
     public void setVicemayor(ViceMayor vicemayor) {
         this.vicemayor = vicemayor;
     }
+
+    public String toString(){
+        return "Prefeito "+ getCode() +" : "+ getName();
+    }
 }

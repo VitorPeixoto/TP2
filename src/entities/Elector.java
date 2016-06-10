@@ -64,4 +64,8 @@ public class Elector {
     public void setSection(int section) {
         this.section = section;
     }
+
+    public String toString(){
+        return "Eleitor "+ this.title +" : "+ this.name;
+    }
 }

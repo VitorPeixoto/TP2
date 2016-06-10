@@ -37,4 +37,8 @@ public class Party {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String toString(){
+        return "Partido "+ this.number + " : "+ this.initials;
+    }
 }

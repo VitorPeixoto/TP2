@@ -52,17 +52,42 @@ public class PartyService implements Services {
 
     @Override
     public void list() {
-
+        for(Party p: parties){
+            System.out.println(p.toString());
+        }
     }
 
     @Override
     public void search() {
-
+        System.out.println("Digite o número do Partido: ");
+        int number = pao.nextInt();
+        for(Party p: parties){
+            if(p.getNumber() == number){
+                System.out.println(p.toString());
+            }
+        }
     }
 
     @Override
     public void update() {
-
+        System.out.println("Digite o número do Partido: ");
+        int number = pao.nextInt();
+        for(Party p: parties){
+            if(p.getNumber() == number){
+                System.out.println("Para cada campo, digite o novo elemento ou \"-1\" para pular. ");
+                System.out.println("Sigla: ");
+                String initials = pao.next();
+                if(!initials.equals("-1")){
+                    p.setInitials(initials);
+                }
+                System.out.println("Nome: ");
+                String name = pao.next();
+                if(!name.equals("-1")){
+                    p.setName(name);
+                }
+                System.out.println("Alteração concluída!");
+            }
+        }
     }
 
     public static boolean verifyExistence(int number){

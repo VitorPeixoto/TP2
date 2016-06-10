@@ -11,4 +11,7 @@ public class Councilman extends Candidate {
         super(code, name, mail, birthDate, party);
     }
 
+    public String toString(){
+        return "Vereador "+ getCode() +" : "+ getName();
+    }
 }

@@ -62,12 +62,22 @@ public class ElectorService implements Services {
 
     @Override
     public void list() {
-
+        for(Elector e: electors){
+            System.out.println(e.toString());
+        }
     }
 
     @Override
     public void search() {
+        System.out.println("Digite o nome do eleitor: ");
+        String name = pao.next();
 
+        for(Elector e: electors){
+            if(e.getName().equals(name)){
+                System.out.println(e.toString());
+                System.out.println("Data de Nascimento: "+ e.getBirthDate());
+            }
+        }
     }
 
     @Override
