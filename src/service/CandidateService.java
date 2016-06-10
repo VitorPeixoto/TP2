@@ -208,13 +208,34 @@ public class CandidateService implements Services {
                             c.setParty(MayorParty);
                         }
                     }
-                    /*   Verificar o que fazer --------------------------------------------------------------
+
                     System.out.println("Nome do Vice-Prefeito: ");
+                    String viceName = pao.next();
+                    if(!viceName.equals("-1")) {
+                        ((Mayor) c).getVicemayor().setName(viceName);
+                    }
                     System.out.println("E-mail do Vice-Prefeito: ");
+                    String viceMail = pao.next();
+                    if(!viceMail.equals("-1")) {
+                        ((Mayor) c).getVicemayor().setMail(viceMail);
+                    }
                     System.out.println("Data de Nascimento do Vice-Prefeito: ");
+                    String viceDate = pao.next();
+                    if(!viceDate.equals("-1")) {
+                        Date ViceMayorBirthDate = new Date(brazilianToAmerican(viceDate)); // Conversao de string em data
+                        ((Mayor) c).getVicemayor().setBirthDate(ViceMayorBirthDate);
+                    }
                     System.out.println("Partido do Vice-Prefeito: ");
-                    -----------------------------------------------------------------------------------------
-                    */
+                    int ViceMayorPartyNumber = pao.nextInt();
+                    if(ViceMayorPartyNumber != -1) {
+                        Party MayorParty = PartyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
+                        if (MayorParty == null) {
+                            System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
+                        } else {
+                            ((Mayor) c).getVicemayor().setParty(MayorParty);
+                        }
+                    }
+
                 }else {
                     System.out.println("VEREADOR");
 
@@ -243,7 +264,7 @@ public class CandidateService implements Services {
                         } else {
                             c.setParty(CouncilmanParty);
                         }
-                    } 
+                    }
 
                 }
                 System.out.println("Alteração concluída!");
