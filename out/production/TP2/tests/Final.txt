@@ -1,0 +1,1128 @@
+1
+1
+1
+15
+PMDB
+PARTIDO DO MOVIMENTO DEMOCRÁTICO BRASILEIRO
+1
+14
+PTB
+PARTIDO TRABALHISTA BRASILEIRO
+1
+12
+PDT
+PARTIDO DEMOCRÁTICO TRABALHISTA
+1
+13
+PT
+PARTIDO DOS TRABALHADORES
+1
+25
+DEM
+DEMOCRATAS
+1
+65
+PCdoB
+PARTIDO COMUNISTA DO BRASIL
+1
+40
+PSB
+PARTIDO SOCIALISTA BRASILEIRO
+1
+45
+PSDB
+PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA
+1
+36
+PTC
+PARTIDO TRABALHISTA CRISTÃO
+1
+20
+PSC
+PARTIDO SOCIAL CRISTÃO
+1
+33
+PMN
+PARTIDO DA MOBILIZAÇÃO NACIONAL
+1
+44
+PRP
+PARTIDO REPUBLICANO PROGRESSISTA
+1
+23
+PPS
+PARTIDO POPULAR SOCIALISTA
+1
+43
+PV
+PARTIDO VERDE
+1
+70
+PTdoB
+PARTIDO TRABALHISTA DO BRASIL
+1
+11
+PP
+PARTIDO PROGRESSISTA
+1
+16
+PSTU
+PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO
+1
+21
+PCB
+PARTIDO COMUNISTA BRASILEIRO
+1
+28
+PRTB
+PARTIDO RENOVADOR TRABALHISTA BRASILEIRO
+1
+31
+PHS
+PARTIDO HUMANISTA DA SOLIDARIEDADE
+1
+27
+PSDC
+PARTIDO SOCIAL DEMOCRATA CRISTÃO
+1
+29
+PCO
+PARTIDO DA CAUSA OPERÁRIA
+1
+19
+PTN
+PARTIDO TRABALHISTA NACIONAL
+1
+17
+PSL
+PARTIDO SOCIAL LIBERAL
+1
+10
+PRB
+PARTIDO REPUBLICANO BRASILEIRO
+1
+50
+PSOL
+PARTIDO SOCIALISMO E LIBERDADE
+1
+22
+PR
+PARTIDO DA REPÚBLICA
+1
+55
+PSD
+PARTIDO SOCIAL DEMOCRÁTICO
+1
+54
+PPL
+PARTIDO PÁTRIA LIVRE
+1
+51
+PEN
+PARTIDO ECOLÓGICO NACIONAL
+1
+90
+PROS
+PARTIDO REPUBLICANO DA ORDEM SOCIAL
+1
+77
+SD
+SOLIDARIEDADE
+1
+30
+NOVO
+PARTIDO NOVO
+1
+18
+REDE
+REDE SUSTENTABILIDADE
+1
+35
+PMB
+PARTIDO DA MULHER BRASILEIRA
+6
+2
+1
+1
+13
+Sofia Drummond Moraes
+sofiadrummondmoraes@candidato.com
+04/05/1987
+15
+100
+Júlia Rios
+júliarios@candidato.com
+26/04/1972
+15
+1
+1
+90
+Sofia Figueiredo
+sofiafigueiredo@candidato.com
+26/03/1972
+14
+67
+Miguel Menezes Guimarães
+miguelmenezesguimarães@candidato.com
+13/12/1974
+14
+1
+1
+45
+Ana Assunção Sanches
+anaassunçãosanches@candidato.com
+21/10/1954
+12
+15
+João Cavalcante
+joãocavalcante@candidato.com
+03/10/1979
+12
+1
+1
+18
+Ana Trindade Medeiros Liberato
+anatrindademedeirosliberato@candidato.com
+12/05/1970
+13
+31
+Enzo Timberg Schmütz
+enzotimbergschmütz@candidato.com
+25/02/1982
+13
+1
+1
+40
+Maria Ganzarolli
+mariaganzarolli@candidato.com
+23/03/1965
+25
+49
+Maria Novaes Lessa
+marianovaeslessa@candidato.com
+03/07/1957
+25
+1
+1
+21
+Arthur Ferrari Lessa
+arthurferrarilessa@candidato.com
+07/06/1965
+65
+38
+Matheus Sanches Cavalcante
+matheussanchescavalcante@candidato.com
+19/12/1964
+65
+1
+1
+64
+Larissa Annenberg
+larissaannenberg@candidato.com
+04/04/1977
+40
+53
+Arthur Albuquerque Dolabella
+arthuralbuquerquedolabella@candidato.com
+08/03/1982
+40
+1
+1
+92
+Maria Barcelos Barros Muniz
+mariabarcelosbarrosmuniz@candidato.com
+17/05/1973
+45
+17
+Sofia Gomes Lessa
+sofiagomeslessa@candidato.com
+21/08/1981
+45
+1
+1
+58
+Arthur Carvalho D’Ávila Vilela
+arthurcarvalhod’ávilavilela@candidato.com
+19/10/1967
+36
+88
+Laura Steves
+laurasteves@candidato.com
+03/07/1969
+36
+1
+1
+56
+Ana Abravanel Lombardi Marinho
+anaabravanellombardimarinho@candidato.com
+10/06/1963
+20
+80
+João Fernandes Andrade
+joãofernandesandrade@candidato.com
+22/04/1960
+20
+1
+1
+68
+Larissa Moscovis
+larissamoscovis@candidato.com
+15/01/1983
+33
+14
+Rafael Lombardi Drummond Annenberg
+rafaellombardidrummondannenberg@candidato.com
+16/03/1977
+33
+1
+1
+42
+Camila Lambertini Dieckmann Bongiovanni
+camilalambertinidieckmannbongiovanni@candidato.com
+02/09/1964
+44
+94
+Sofia Fernandes
+sofiafernandes@candidato.com
+10/11/1952
+44
+1
+1
+95
+Maria Silverstone D’Ávila Duarte
+mariasilverstoned’áviladuarte@candidato.com
+16/04/1986
+23
+74
+Rafael Timberg
+rafaeltimberg@candidato.com
+10/09/1958
+23
+1
+1
+79
+Larissa Close Fontenelle Torres
+larissaclosefontenelletorres@candidato.com
+21/12/1961
+43
+98
+Larissa Assunção Campos Góes
+larissaassunçãocamposgóes@candidato.com
+12/03/1957
+43
+1
+1
+82
+Larissa Drummond
+larissadrummond@candidato.com
+18/01/1977
+70
+36
+Lucas Annenberg Figueiredo Hickmann
+lucasannenbergfigueiredohickmann@candidato.com
+26/01/1984
+70
+1
+1
+99
+Guilherme Albuquerque Moura
+guilhermealbuquerquemoura@candidato.com
+04/12/1952
+11
+93
+Camila Falabella Sanches
+camilafalabellasanches@candidato.com
+24/05/1955
+11
+1
+1
+19
+Lucas Gonçalves
+lucasgonçalves@candidato.com
+11/01/1966
+16
+11
+Larissa Campos Campos
+larissacamposcampos@candidato.com
+14/07/1954
+16
+1
+1
+24
+Lucas Ribeiro Castiel
+lucasribeirocastiel@candidato.com
+08/11/1981
+21
+27
+Arthur Maldonado Assunção
+arthurmaldonadoassunção@candidato.com
+16/06/1973
+21
+1
+1
+55
+Júlia Antunes
+júliaantunes@candidato.com
+18/12/1977
+28
+73
+Gustavo Moraes Duarte Gonçalves
+gustavomoraesduartegonçalves@candidato.com
+05/04/1953
+28
+1
+1
+89
+Guilherme Martins
+guilhermemartins@candidato.com
+08/07/1984
+31
+41
+Júlia Reymond
+júliareymond@candidato.com
+13/08/1985
+31
+1
+2
+1654
+Júlia Resende
+júliaresende@candidato.com
+28/10/1956
+15
+1
+2
+2770
+Gustavo Carvalho Santana
+gustavocarvalhosantana@candidato.com
+03/11/1977
+14
+1
+2
+3129
+Júlia Maldonado
+júliamaldonado@candidato.com
+16/08/1965
+12
+1
+2
+3756
+Gustavo Garcia
+gustavogarcia@candidato.com
+22/07/1954
+13
+1
+2
+3829
+João Antunes Andrade
+joãoantunesandrade@candidato.com
+16/03/1953
+25
+1
+2
+3014
+Gustavo Moraes Carvalho
+gustavomoraescarvalho@candidato.com
+08/12/1963
+65
+1
+2
+6228
+Arthur D’Ávila Rios
+arthurd’ávilarios@candidato.com
+27/08/1985
+40
+1
+2
+5289
+Gustavo Andrade Abravanel
+gustavoandradeabravanel@candidato.com
+14/06/1973
+45
+1
+2
+1611
+Camila Menezes
+camilamenezes@candidato.com
+08/02/1957
+36
+1
+2
+8188
+João Reymond
+joãoreymond@candidato.com
+09/11/1983
+20
+1
+2
+3034
+Enzo Schmütz Falabella Fischer
+enzoschmützfalabellafischer@candidato.com
+16/08/1972
+33
+1
+2
+7259
+Maria Fernandes Antunes
+mariafernandesantunes@candidato.com
+04/12/1986
+44
+1
+2
+5652
+Maria Fagundes
+mariafagundes@candidato.com
+26/04/1963
+23
+1
+2
+3021
+Beatriz Bongiovanni
+beatrizbongiovanni@candidato.com
+27/12/1975
+43
+1
+2
+6616
+Arthur Trindade Bittencourt Fontenelle
+arthurtrindadebittencourtfontenelle@candidato.com
+17/09/1976
+70
+1
+2
+9698
+Laura Simpson Assunção
+laurasimpsonassunção@candidato.com
+14/01/1985
+11
+1
+2
+8555
+Matheus Sanches
+matheussanches@candidato.com
+24/04/1962
+16
+1
+2
+1643
+Camila Antunes
+camilaantunes@candidato.com
+23/04/1961
+21
+1
+2
+8167
+Gustavo Figueiredo
+gustavofigueiredo@candidato.com
+19/12/1955
+28
+1
+2
+5949
+Larissa Fagundes
+larissafagundes@candidato.com
+15/04/1950
+31
+6
+3
+1
+Rafael Gonçalves Reymond
+21/12/1979
+750937142131
+145
+2822
+1
+Rafael Johnson Liberato
+19/04/1953
+057362161744
+894
+6327
+1
+Gustavo Bastos Castiel Fernandes
+04/10/1981
+190336522238
+525
+9609
+1
+Isabela Torres Dantas Fernandes
+17/05/1984
+481847175894
+531
+2002
+1
+Laura Barcellos Annenberg
+01/05/1982
+882838387679
+413
+3776
+1
+Gabriel Garcia Medeiros Alencar
+18/12/1975
+906531146809
+993
+1050
+1
+Camila Bonner Bial Hickmann
+21/03/1983
+680412326933
+969
+3919
+1
+Miguel Vargas Schoemberger Gonçalves
+23/02/1978
+617968920117
+881
+5826
+1
+Maria Kannenberg Noronha Steves
+12/09/1958
+603071565006
+941
+1522
+1
+João Lessa
+16/06/1971
+984729664573
+538
+5783
+1
+Matheus Ganzarolli Monteiro Fagundes
+25/03/1950
+763434939365
+652
+6396
+1
+Beatriz Barcellos Guimarães Ribeiro
+10/04/1984
+636477285774
+952
+4195
+1
+João Moura Annenberg
+08/09/1968
+393577316534
+626
+6459
+1
+Guilherme Lambertini Moura Menezes
+02/03/1953
+108515177275
+934
+8721
+1
+Ana Bastos Carvalho
+25/09/1983
+472649127638
+215
+6956
+1
+Gustavo Abravanel Arantes Bernardi
+27/03/1965
+085753848995
+524
+7842
+1
+Maria Bial Müller
+07/03/1966
+289192459632
+326
+3496
+1
+Gabriel Moraes
+19/03/1972
+749381477887
+418
+7831
+1
+Rafael Góes Alencar Ferraz
+20/01/1969
+344865789132
+561
+1997
+1
+Lucas Riche
+17/06/1961
+803858026785
+113
+9904
+1
+Isabela Simpson Falabella Campos
+01/10/1968
+147584937035
+331
+6008
+1
+Gustavo Albuquerque Abravanel Müller
+21/01/1962
+378305534670
+802
+1457
+1
+Laura Dolabella Lessa
+25/10/1979
+555352128279
+746
+8685
+1
+Matheus Campos
+28/12/1958
+197737292922
+718
+9251
+1
+Gabriel Menezes Chapelin
+08/06/1971
+889087243232
+862
+3400
+1
+Larissa Medeiros Ferrari
+14/12/1966
+190581438319
+599
+9285
+1
+Maria Lambertini
+23/07/1954
+958993180351
+773
+1562
+1
+Laura Sanches
+09/05/1970
+612410241018
+178
+3130
+1
+Camila Dieckmann Moraes
+10/02/1983
+875729169015
+228
+7683
+1
+Gabriel Garcia Trindade
+13/12/1966
+749033956425
+986
+8691
+1
+Laura Ganzarolli Sampaio
+02/07/1953
+777460877015
+754
+3281
+1
+Ana Castro
+26/03/1954
+836752939590
+753
+9162
+1
+Matheus Duarte Mazzaropi
+07/03/1988
+491664374772
+569
+6252
+1
+Rafael Cavalcante
+25/09/1975
+484127094165
+672
+2257
+1
+Maria Giácomo Marinho
+06/01/1989
+595034870982
+118
+1154
+1
+Sofia Johnson Schmütz Falabella
+03/01/1989
+434759738802
+379
+3490
+1
+Maria Vilela
+06/01/1958
+347485565010
+686
+8084
+1
+Lucas Schmütz Boaventura
+01/04/1955
+677203497954
+376
+5492
+1
+Matheus Figueiredo Dantas Liberato
+20/12/1973
+388882121044
+240
+9227
+1
+Enzo Oliveira
+23/11/1988
+938740375030
+786
+1874
+1
+Guilherme Vargas
+03/05/1973
+403856009446
+984
+5457
+1
+Ana Steves Barros
+19/05/1983
+062138677606
+203
+3005
+1
+Miguel Duarte Kannenberg
+07/09/1978
+042854201783
+459
+7643
+1
+Lucas Montenegro Albuquerque Drummond
+14/06/1953
+440833519331
+737
+4889
+1
+Rafael Fagundes Werneck Fontenelle
+28/01/1986
+010850295235
+442
+2268
+1
+João Santana Fischer
+08/12/1950
+894057271007
+736
+7577
+1
+Enzo Martins Gonçalves Liberato
+08/04/1971
+964006246956
+293
+3534
+1
+Camila Lambertini Rios
+01/03/1983
+389391161651
+266
+9783
+1
+Ana Ferrari Annenberg
+17/05/1972
+954042806254
+777
+1497
+1
+Guilherme Ferrari Werneck
+28/06/1977
+520459119574
+378
+2539
+1
+Gustavo Novaes Figueiredo Alencar
+25/09/1955
+690218954433
+765
+4420
+1
+Arthur Schoemberger Liberato
+27/02/1979
+530117334448
+479
+1666
+1
+Sofia Müller Chapelin Dolabella
+25/12/1972
+688675701080
+917
+3827
+1
+Júlia Schmütz
+06/03/1959
+465010244543
+855
+9274
+1
+Laura Bonner
+08/12/1959
+880305479935
+251
+4500
+1
+Gabriel Moura
+22/02/1988
+469842405145
+268
+1962
+1
+Júlia Fernandes Ferraz Lafaiete
+25/06/1953
+192560554855
+980
+8014
+1
+Laura Abravanel
+03/04/1955
+551338877004
+938
+4916
+1
+Rafael Fagundes
+11/04/1950
+410812101843
+606
+1173
+1
+Camila Boaventura Marinho Barcellos
+04/02/1950
+579146839525
+780
+9036
+1
+Gustavo Mazzaropi
+06/05/1951
+490265833758
+934
+1729
+1
+Arthur Chapelin
+20/04/1959
+396511220253
+690
+3999
+1
+Júlia Liberato
+22/09/1953
+262585366688
+689
+5288
+1
+Júlia Garcia Johnson
+10/03/1969
+899384069970
+265
+6702
+1
+Sofia Alencar Antunes Marques
+03/10/1955
+469840287544
+398
+2019
+1
+Júlia Schoemberger Vasconcelos Vilela
+23/10/1960
+402285086099
+393
+8420
+1
+Júlia Santana
+07/11/1959
+273474056272
+898
+8754
+1
+Gabriel Arantes
+02/05/1952
+796403032506
+129
+6219
+1
+Lucas Santana
+06/10/1970
+987068218033
+193
+7870
+1
+Gabriel Barcellos Alves Bongiovanni
+07/04/1968
+082329046917
+857
+7124
+1
+João Giácomo
+16/11/1977
+469772537818
+417
+7224
+1
+Isabela Schmütz Santana Trindade
+07/07/1955
+000412997407
+257
+6290
+1
+Miguel Andrade Bonner Guimarães
+19/09/1981
+497506801739
+952
+7834
+1
+Laura Simpson
+19/09/1980
+987343135703
+603
+5447
+1
+Gustavo Riche Timberg Moura
+23/05/1957
+457644440176
+965
+8258
+1
+Lucas Montenegro Bongiovanni Giácomo
+14/10/1962
+121302628763
+811
+7499
+1
+Isabela Vilela Carvalho
+26/01/1951
+038849158083
+507
+5574
+1
+Ana Bittencourt Simpson Cavalcante
+21/07/1984
+406024673408
+178
+5040
+1
+Maria Martins Dantas Vasconcelos
+09/02/1989
+193730734406
+412
+8512
+1
+Isabela Barcelos Giácomo
+25/01/1956
+003504823154
+392
+6795
+1
+Isabela Annenberg Silverstone Reymond
+15/07/1978
+701442668217
+645
+5501
+1
+Enzo Assunção Montenegro
+24/08/1978
+760877937222
+823
+2781
+1
+Rafael Albuquerque Fernandes
+18/07/1971
+612126670226
+200
+1142
+1
+Isabela Resende Sanches
+09/12/1988
+191681531703
+295
+4252
+1
+Maria Ferrari Kannenberg Cavalcante
+15/09/1964
+282376457044
+929
+6367
+1
+Sofia Bonner Marques Albuquerque
+04/12/1951
+508294756927
+120
+3005
+1
+Maria Lombardi Ferraz
+02/05/1966
+070758067244
+820
+4655
+1
+Laura Ganzarolli
+23/07/1968
+162717019684
+279
+2175
+1
+Lucas Silverstone Roriz
+21/01/1966
+408501551615
+450
+4045
+1
+Sofia Garcia Menezes
+26/08/1983
+286655376123
+324
+5977
+1
+Miguel Bastos Dantas
+06/10/1961
+103119944660
+142
+6336
+1
+Camila Vasconcelos Andrade
+23/03/1982
+190754124593
+483
+7324
+1
+Júlia Fontenelle
+17/01/1984
+113502640715
+770
+3795
+1
+Miguel Riche Mazzaropi
+15/01/1952
+187795645475
+963
+4622
+1
+Júlia Menezes Abravanel
+21/05/1962
+025204563775
+643
+3605
+1
+Maria Maldonado Bernardi
+05/01/1983
+131989327646
+344
+8287
+1
+Arthur Bial Cavalcante Falabella
+03/05/1960
+261485987703
+681
+1829
+1
+João Bastos Bonner
+02/04/1950
+158153500230
+563
+7787
+1
+Gustavo Assunção
+28/12/1958
+946066382471
+829
+6694
+1
+Maria Medeiros
+09/10/1983
+426859419044
+270
+6051
+6
+5

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * Created by Peixoto on 24/05/2016.
  */
 public class ElectorService implements Services {
-    private static ArrayList<Elector> electors;
+    private static ArrayList<Elector> electors = new ArrayList<>();
 
     static {
         pao.useDelimiter(Pattern.compile("[\\n;]"));
@@ -27,7 +27,7 @@ public class ElectorService implements Services {
         Date electorBirthDate = new Date(brazilianToAmerican(electorBirth)); // Conversao de string em data
 
         System.out.println("Título: ");
-        int electorTitle = pao.nextInt();
+        String electorTitle = pao.next();
 
         System.out.println("Zona: ");
         int electorZone = pao.nextInt();
@@ -49,7 +49,7 @@ public class ElectorService implements Services {
     @Override
     public void delete() {
         System.out.println("Digite o título do eleitor: ");
-        int title = pao.nextInt();
+        String title = pao.next();
 
         Elector e = returnExistant(title);
         if(e != null){
@@ -83,10 +83,10 @@ public class ElectorService implements Services {
     @Override
     public void update() {
         System.out.println("Digite o número do Título do eleitor: ");
-        int title = pao.nextInt();
+        String title = pao.next();
 
         for(Elector e: electors){
-            if(e.getTitle() == title){
+            if(e.getTitle().equals(title)){
                 System.out.println("Para cada campo, digite o novo elemento ou \"-1\" para pular. ");
                 System.out.println("Nome: ");
                 String name = pao.next();
@@ -116,18 +116,18 @@ public class ElectorService implements Services {
         System.out.println("Alteração concluída!");
     }
 
-    public static boolean verifyExistence(int title){
+    public static boolean verifyExistence(String title){
         for (Elector e : electors) {
-            if(e.getTitle() == title) {
+            if(e.getTitle().equals(title)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static Elector returnExistant(int title){
+    public static Elector returnExistant(String title){
         for(Elector e : electors) {
-            if(e.getTitle() == title){
+            if(e.getTitle().equals(title)){
                 return e;
             }
         }

@@ -9,11 +9,11 @@ import java.util.Date;
 public class Elector {
     private String name;
     private Date birthDate;
-    private int title;
+    private String title;
     private int zone;
     private int section;
 
-    public Elector(String name, Date birthDate, int title, int zone, int section) {
+    public Elector(String name, Date birthDate, String title, int zone, int section) {
         this.name = name;
         this.birthDate = birthDate;
         this.title = title;
@@ -33,7 +33,7 @@ public class Elector {
         return birthDate;
     }
 
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -53,7 +53,7 @@ public class Elector {
         this.birthDate = birthDate;
     }
 
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

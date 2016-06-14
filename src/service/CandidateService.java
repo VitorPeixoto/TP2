@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * Created by Peixoto on 24/05/2016.
  */
 public class CandidateService implements Services {
-    private static ArrayList<Candidate> candidates;
+    private static ArrayList<Candidate> candidates = new ArrayList<>();
 
     private final String[] candidatesMenu = {"Prefeito",
                                              "Vereador"};

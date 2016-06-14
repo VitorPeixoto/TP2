@@ -1,0 +1,220 @@
+Prefeitos: 
+13
+Sofia Drummond Moraes
+sofiadrummondmoraes@candidato.com
+04/05/1987
+15
+100
+Júlia Rios
+júliarios@candidato.com
+26/04/1972
+15
+
+90
+Sofia Figueiredo
+sofiafigueiredo@candidato.com
+26/03/1972
+14
+67
+Miguel Menezes Guimarães
+miguelmenezesguimarães@candidato.com
+13/12/1974
+14
+
+45
+Ana Assunção Sanches
+anaassunçãosanches@candidato.com
+21/10/1954
+12
+15
+João Cavalcante
+joãocavalcante@candidato.com
+03/10/1979
+12
+
+18
+Ana Trindade Medeiros Liberato
+anatrindademedeirosliberato@candidato.com
+12/05/1970
+13
+31
+Enzo Timberg Schmütz
+enzotimbergschmütz@candidato.com
+25/02/1982
+13
+
+40
+Maria Ganzarolli
+mariaganzarolli@candidato.com
+23/03/1965
+25
+49
+Maria Novaes Lessa
+marianovaeslessa@candidato.com
+03/07/1957
+25
+
+21
+Arthur Ferrari Lessa
+arthurferrarilessa@candidato.com
+07/06/1965
+65
+38
+Matheus Sanches Cavalcante
+matheussanchescavalcante@candidato.com
+19/12/1964
+65
+
+64
+Larissa Annenberg
+larissaannenberg@candidato.com
+04/04/1977
+40
+53
+Arthur Albuquerque Dolabella
+arthuralbuquerquedolabella@candidato.com
+08/03/1982
+40
+
+92
+Maria Barcelos Barros Muniz
+mariabarcelosbarrosmuniz@candidato.com
+17/05/1973
+45
+17
+Sofia Gomes Lessa
+sofiagomeslessa@candidato.com
+21/08/1981
+45
+
+58
+Arthur Carvalho D’Ávila Vilela
+arthurcarvalhod’ávilavilela@candidato.com
+19/10/1967
+36
+88
+Laura Steves
+laurasteves@candidato.com
+03/07/1969
+36
+
+56
+Ana Abravanel Lombardi Marinho
+anaabravanellombardimarinho@candidato.com
+10/06/1963
+20
+80
+João Fernandes Andrade
+joãofernandesandrade@candidato.com
+22/04/1960
+20
+
+68
+Larissa Moscovis
+larissamoscovis@candidato.com
+15/01/1983
+33
+14
+Rafael Lombardi Drummond Annenberg
+rafaellombardidrummondannenberg@candidato.com
+16/03/1977
+33
+
+42
+Camila Lambertini Dieckmann Bongiovanni
+camilalambertinidieckmannbongiovanni@candidato.com
+02/09/1964
+44
+94
+Sofia Fernandes
+sofiafernandes@candidato.com
+10/11/1952
+44
+
+95
+Maria Silverstone D’Ávila Duarte
+mariasilverstoned’áviladuarte@candidato.com
+16/04/1986
+23
+74
+Rafael Timberg
+rafaeltimberg@candidato.com
+10/09/1958
+23
+
+79
+Larissa Close Fontenelle Torres
+larissaclosefontenelletorres@candidato.com
+21/12/1961
+43
+98
+Larissa Assunção Campos Góes
+larissaassunçãocamposgóes@candidato.com
+12/03/1957
+43
+
+82
+Larissa Drummond
+larissadrummond@candidato.com
+18/01/1977
+70
+36
+Lucas Annenberg Figueiredo Hickmann
+lucasannenbergfigueiredohickmann@candidato.com
+26/01/1984
+70
+
+99
+Guilherme Albuquerque Moura
+guilhermealbuquerquemoura@candidato.com
+04/12/1952
+11
+93
+Camila Falabella Sanches
+camilafalabellasanches@candidato.com
+24/05/1955
+11
+
+19
+Lucas Gonçalves
+lucasgonçalves@candidato.com
+11/01/1966
+16
+11
+Larissa Campos Campos
+larissacamposcampos@candidato.com
+14/07/1954
+16
+
+24
+Lucas Ribeiro Castiel
+lucasribeirocastiel@candidato.com
+08/11/1981
+21
+27
+Arthur Maldonado Assunção
+arthurmaldonadoassunção@candidato.com
+16/06/1973
+21
+
+55
+Júlia Antunes
+júliaantunes@candidato.com
+18/12/1977
+28
+73
+Gustavo Moraes Duarte Gonçalves
+gustavomoraesduartegonçalves@candidato.com
+05/04/1953
+28
+
+89
+Guilherme Martins
+guilhermemartins@candidato.com
+08/07/1984
+31
+41
+Júlia Reymond
+júliareymond@candidato.com
+13/08/1985
+31

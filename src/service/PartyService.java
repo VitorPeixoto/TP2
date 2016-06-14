@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * Created by Peixoto on 24/05/2016.
  */
 public class PartyService implements Services {
-    private static ArrayList<Party> parties;
+    private static ArrayList<Party> parties = new ArrayList<>();
 
     static {
         pao.useDelimiter(Pattern.compile("[\\n;]"));
