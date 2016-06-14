@@ -72,7 +72,7 @@ public class PartyService implements Services {
     public void update() {
         System.out.println("Digite o número do Partido: ");
         int number = pao.nextInt();
-        for(Party p: parties){
+        for(Party p : parties){
             if(p.getNumber() == number){
                 System.out.println("Para cada campo, digite o novo elemento ou \"-1\" para pular. ");
                 System.out.println("Sigla: ");

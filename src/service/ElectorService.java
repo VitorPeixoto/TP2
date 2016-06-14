@@ -46,6 +46,18 @@ public class ElectorService implements Services {
 
     }
 
+    public void registerPresident(String electorName, String electorBirth, String electorTitle, int electorZone, int electorSection) {
+        Date electorBirthDate = new Date(brazilianToAmerican(electorBirth)); // Conversao de string em data
+        if(verifyExistence(electorTitle)) {
+            System.out.println("Título de eleitor já registrado.");
+        }
+        else{
+            Elector e = new Elector(electorName, electorBirthDate, electorTitle, electorZone, electorSection);
+            electors.add(e);
+            System.out.println("Presidente registrado com sucesso.");
+        }
+    }
+
     @Override
     public void delete() {
         System.out.println("Digite o título do eleitor: ");

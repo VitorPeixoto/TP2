@@ -1,9 +1,11 @@
+import entities.Elector;
 import service.CandidateService;
 import service.ElectorService;
 import service.PartyService;
 import service.Services;
 
 import java.security.Provider;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -49,7 +51,25 @@ public class Main {
     }
 
     private static void electionMenu() {
-        //@TODO fazer o menu de eleição
+        System.out.println("Entre com os dados do presidente:");
+
+        System.out.println("Nome do presidente: ");
+        String electorName = pao.next();
+
+        System.out.println("Data de nascimento: ");
+        String electorBirth = pao.next();
+
+        System.out.println("Título: ");
+        String electorTitle = pao.next();
+
+        System.out.println("Zona: ");
+        int electorZone = pao.nextInt();
+
+        System.out.println("Seção: ");
+        int electorSection = pao.nextInt();
+
+        electorService.registerPresident(electorName, electorBirth, electorTitle, electorZone, electorSection);
+        Elector president = ElectorService.returnExistant(electorTitle);
     }
 
     private static void managerMenu() {
