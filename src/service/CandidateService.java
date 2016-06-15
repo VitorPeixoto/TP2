@@ -4,7 +4,9 @@ import entities.Candidate;
 import entities.Councilman;
 import entities.Mayor;
 import entities.Party;
+import exceptions.WrongNumberOfDigitsException;
 
+import java.lang.invoke.WrongMethodTypeException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Pattern;
@@ -88,8 +90,14 @@ public class CandidateService implements Services {
                     System.out.println("Candidato já registrado.");
                 }
                 else{
-                    Mayor m = new Mayor(mayorCode, mayorName, mayorMail, mayorBirthDate, mayorParty,
-                                        viceMayorCode, viceMayorName, viceMayorMail, viceMayorBirthDate, viceMayorParty);
+                    Mayor m = null;
+                    try {
+                        m = new Mayor(mayorCode, mayorName, mayorMail, mayorBirthDate, mayorParty,
+                                            viceMayorCode, viceMayorName, viceMayorMail, viceMayorBirthDate, viceMayorParty);
+                    } catch (WrongNumberOfDigitsException e) {
+                        System.out.println("Código para prefeito inválido. Deve conter 2 dígitos.");
+                        return;
+                    }
                     candidates.add(m);
                     System.out.println("Prefeito registrado com sucesso.");
                 }
@@ -121,9 +129,14 @@ public class CandidateService implements Services {
                     System.out.println("Vereador já registrado.");
                 }
                 else{
-                    Councilman c = new Councilman(councilmanCode, councilmanName, councilmanMail, councilmanBirthDate, councilmanParty);
-                    candidates.add(c);
-                    System.out.println("Vereador registrado com sucesso.");
+                    try {
+                        Councilman c = new Councilman(councilmanCode, councilmanName, councilmanMail, councilmanBirthDate, councilmanParty);
+                        candidates.add(c);
+                        System.out.println("Vereador registrado com sucesso.");
+                    }catch(WrongNumberOfDigitsException e){
+                        System.out.println("Código para vereador inválido. Deve conter 4 dígitos.");
+                        return;
+                    }
                 }
                 break;
             default:

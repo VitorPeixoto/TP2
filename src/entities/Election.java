@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class Election {
     private static Scanner pao = Services.pao;
-    public ElectorService electorService = ElectorService.getSingleService();
+    private ElectorService electorService = ElectorService.getSingleService();
     private ArrayList<Candidate> candidates = CandidateService.getSingleService().getCandidates();
 
     private Elector president;
@@ -213,6 +213,38 @@ public class Election {
         }
     }
 
-    private final int MAYOR      = 0,
-                      COUNCILMAN = 1;
+    public Elector getPresident() {
+        return president;
+    }
+
+    public int[] getTotalVotes() {
+        return totalVotes;
+    }
+
+    public int[] getNullVotes() {
+        return nullVotes;
+    }
+
+    public int[] getWhiteVotes() {
+        return whiteVotes;
+    }
+
+    public HashMap<Integer, Integer> getMayorVotes() {
+        return mayorVotes;
+    }
+
+    public HashMap<Integer, Integer> getCouncilmanVotes() {
+        return councilmanVotes;
+    }
+
+    public HashMap<Integer, String> getMayorEntries() {
+        return mayorEntries;
+    }
+
+    public HashMap<Integer, String> getCouncilmanEntries() {
+        return councilmanEntries;
+    }
+
+    public final int MAYOR      = 0,
+                     COUNCILMAN = 1;
 }

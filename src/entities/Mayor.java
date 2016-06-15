@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.Date;
+import exceptions.WrongNumberOfDigitsException;
 
 /**
  * Created by Peixoto on 24/05/2016.
@@ -10,8 +11,9 @@ public class Mayor extends Candidate{
     private ViceMayor vicemayor;
 
     public Mayor(int code, String name, String mail, Date birthDate, Party party,
-                 int codev, String namev, String mailv, Date birthDatev, Party partyv) {
+                 int codev, String namev, String mailv, Date birthDatev, Party partyv) throws WrongNumberOfDigitsException {
         super(code, name, mail, birthDate, party);
+        if(code < 10 || code >= 100) throw new WrongNumberOfDigitsException();
         this.vicemayor = new ViceMayor(codev, namev,mailv,birthDatev,partyv);
 
     }

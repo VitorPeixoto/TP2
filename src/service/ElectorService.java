@@ -80,6 +80,7 @@ public class ElectorService implements Services {
         Elector e = returnExistant(title);
         if(e != null){
             electors.remove(e);
+            System.out.println("Eleitor excluído!");
         }
         else{
             System.out.println("Eleitor não encontrado.");
@@ -135,6 +136,7 @@ public class ElectorService implements Services {
                 if(section != -1){
                     e.setSection(section);
                 }
+                System.out.println("Alteração concluída!");
                 break;
             }
         }

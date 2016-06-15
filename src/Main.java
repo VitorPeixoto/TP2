@@ -74,9 +74,16 @@ public class Main {
 
                     System.out.println("Seção: ");
                     int presidentSection = pao.nextInt();
+
+                    if(elections.keySet().contains(presidentSection)) {
+                        System.out.println("Este presidente já apurou os votos.");
+                        break;
+                    }
+
                     Election election = new Election(presidentName, presidentZone, presidentSection, presidentTitle, presidentBirth,
                                                      electorService.getNumberOfElectorsByZoneAndSection(presidentZone, presidentSection));
 
+                    if(election.isCanceled()) break;
                     //Adiciona eleição ao HashMap
                     elections.put(presidentSection, election);
                     break;
@@ -107,9 +114,14 @@ public class Main {
                     break;
                 case 4:
                     //@TODO fazer os relatórios
+                    reports();
                     break;
             }
         }
+    }
+
+    private static void reports() {
+
     }
 
     private static void callService(String serviceName, Services service, int serviceOption) {

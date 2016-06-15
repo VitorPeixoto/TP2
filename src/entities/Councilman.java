@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.WrongNumberOfDigitsException;
+
 import java.util.Date;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Date;
  */
 public class Councilman extends Candidate {
 
-    public Councilman(int code, String name, String mail, Date birthDate, Party party) {
+    public Councilman(int code, String name, String mail, Date birthDate, Party party) throws WrongNumberOfDigitsException{
         super(code, name, mail, birthDate, party);
     }
 

@@ -47,6 +47,7 @@ public class PartyService implements Services {
         }
         else{
             parties.add(new Party(partyNumber, partyInitials, partyName));
+            System.out.println("Partido realizado com sucesso!");
         }
     }
 
@@ -58,6 +59,7 @@ public class PartyService implements Services {
 
         if(p != null) {
             parties.remove(p);
+            System.out.println("Partido excluído!");
         }
         else {
             System.out.println("Partido não registrado.");
