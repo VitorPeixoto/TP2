@@ -1,5 +1,6 @@
 package service;
 
+import entities.Candidate;
 import entities.Elector;
 
 import java.util.ArrayList;
@@ -10,10 +11,23 @@ import java.util.regex.Pattern;
  * Created by Peixoto on 24/05/2016.
  */
 public class ElectorService implements Services {
-    private static ArrayList<Elector> electors = new ArrayList<>();
+    private static ElectorService singleService = null;
+
+    private ArrayList<Elector> electors;
+
+    private ElectorService() {
+        electors = new ArrayList<>();
+    }
 
     static {
         pao.useDelimiter(Pattern.compile("[\\n;]"));
+    }
+
+    public static ElectorService getSingleService() {
+        if(singleService == null) {
+            singleService = new ElectorService();
+        }
+        return singleService;
     }
 
     @Override
@@ -84,7 +98,7 @@ public class ElectorService implements Services {
         System.out.println("Digite o nome do eleitor: ");
         String name = pao.next();
 
-        for(Elector e: electors){
+        for(Elector e : electors){
             if(e.getName().equals(name)){
                 System.out.println(e.toString());
                 System.out.println("Data de Nascimento: "+ e.getBirthDate());
@@ -128,7 +142,26 @@ public class ElectorService implements Services {
         System.out.println("Alteração concluída!");
     }
 
-    public static boolean verifyExistence(String title){
+    public int getNumberOfElectorsByZoneAndSection(int zone, int section) {
+        int numberOfElectors = 0;
+        for (Elector e : electors) {
+            if (e.getSection() == section && e.getZone() == zone) numberOfElectors++;
+        }
+        return numberOfElectors;
+    }
+
+    public boolean existsElectorInZoneAndSection(String title, int zone, int section) {
+        for (Elector e : electors) {
+            if (e.getSection() == section && e.getZone() == zone && e.getTitle().equals(title)) return true;
+        }
+        return false;
+    }
+
+    public ArrayList<Elector> getElectors() {
+        return electors;
+    }
+
+    public boolean verifyExistence(String title){
         for (Elector e : electors) {
             if(e.getTitle().equals(title)) {
                 return true;
@@ -137,7 +170,7 @@ public class ElectorService implements Services {
         return false;
     }
 
-    public static Elector returnExistant(String title){
+    public Elector returnExistant(String title){
         for(Elector e : electors) {
             if(e.getTitle().equals(title)){
                 return e;

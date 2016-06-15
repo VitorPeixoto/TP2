@@ -1,11 +1,10 @@
-import entities.Elector;
+import entities.Election;
 import service.CandidateService;
 import service.ElectorService;
 import service.PartyService;
 import service.Services;
 
-import java.security.Provider;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -13,9 +12,11 @@ import java.util.Scanner;
  */
 public class Main {
     private static Scanner pao = Services.pao;
-    private static CandidateService candidateService = new CandidateService();
-    private static PartyService     partyService     = new PartyService();
-    private static ElectorService   electorService   = new ElectorService();
+    public static CandidateService candidateService = CandidateService.getSingleService();
+    public static PartyService     partyService     = PartyService.getSingleService();
+    public static ElectorService   electorService   = ElectorService.getSingleService();
+
+    private static HashMap<Integer, Election> elections = new HashMap<>();
 
     private static final String[] mainMenuEntries = new String[] {"Módulo do Administrador",
                                                                   "Módulo da Eleição",
@@ -25,7 +26,7 @@ public class Main {
                                                                      "Eleitores",
                                                                      "Relatórios",
                                                                      "Menu Principal"};
-    private static final String[] electionMenuEntries = new String[] {"Começar Eleição",
+    private static final String[] electionMenuEntries = new String[] {"Começar uma Eleição",
                                                                       "Menu Principal"};
     private static final String[] servicesMenuEntries = new String[] {"Registrar",
                                                                       "Excluir",
@@ -51,25 +52,38 @@ public class Main {
     }
 
     private static void electionMenu() {
-        System.out.println("Entre com os dados do presidente:");
+        int electionOption = 0;
+        while(electionOption != 2) {
+            electionOption = Services.printMenu("Eleição", electionMenuEntries);
 
-        System.out.println("Nome do presidente: ");
-        String electorName = pao.next();
+            switch (electionOption) {
+                case 1:
+                    System.out.println("Entre com os dados do presidente:");
 
-        System.out.println("Data de nascimento: ");
-        String electorBirth = pao.next();
+                    System.out.println("Nome do presidente: ");
+                    String presidentName = pao.next();
 
-        System.out.println("Título: ");
-        String electorTitle = pao.next();
+                    System.out.println("Data de nascimento: ");
+                    String presidentBirth = pao.next();
 
-        System.out.println("Zona: ");
-        int electorZone = pao.nextInt();
+                    System.out.println("Título: ");
+                    String presidentTitle = pao.next();
 
-        System.out.println("Seção: ");
-        int electorSection = pao.nextInt();
+                    System.out.println("Zona: ");
+                    int presidentZone = pao.nextInt();
 
-        electorService.registerPresident(electorName, electorBirth, electorTitle, electorZone, electorSection);
-        Elector president = ElectorService.returnExistant(electorTitle);
+                    System.out.println("Seção: ");
+                    int presidentSection = pao.nextInt();
+                    Election election = new Election(presidentName, presidentZone, presidentSection, presidentTitle, presidentBirth,
+                                                     electorService.getNumberOfElectorsByZoneAndSection(presidentZone, presidentSection));
+
+                    //Adiciona eleição ao HashMap
+                    elections.put(presidentSection, election);
+                    break;
+                case 2:
+                    break;
+            }
+        }
     }
 
     private static void managerMenu() {

@@ -149,7 +149,7 @@ Sofia Drummond Moraes
 sofiadrummondmoraes@candidato.com
 04/05/1987
 15
-100
+10
 Júlia Rios
 júliarios@candidato.com
 26/04/1972
@@ -324,7 +324,7 @@ lucasannenbergfigueiredohickmann@candidato.com
 70
 1
 1
-99
+98
 Guilherme Albuquerque Moura
 guilhermealbuquerquemoura@candidato.com
 04/12/1952
@@ -534,56 +534,56 @@ Rafael Gonçalves Reymond
 Rafael Johnson Liberato
 19/04/1953
 057362161744
-894
-6327
+145
+2822
 1
 Gustavo Bastos Castiel Fernandes
 04/10/1981
 190336522238
-525
-9609
+145
+2822
 1
 Isabela Torres Dantas Fernandes
 17/05/1984
 481847175894
-531
-2002
+145
+2822
 1
 Laura Barcellos Annenberg
 01/05/1982
 882838387679
-413
-3776
+145
+2822
 1
 Gabriel Garcia Medeiros Alencar
 18/12/1975
 906531146809
-993
-1050
+952
+4195
 1
 Camila Bonner Bial Hickmann
 21/03/1983
 680412326933
-969
-3919
+952
+4195
 1
 Miguel Vargas Schoemberger Gonçalves
 23/02/1978
 617968920117
-881
-5826
+952
+4195
 1
 Maria Kannenberg Noronha Steves
 12/09/1958
 603071565006
-941
-1522
+952
+4195
 1
 João Lessa
 16/06/1971
 984729664573
-538
-5783
+952
+4195
 1
 Matheus Ganzarolli Monteiro Fagundes
 25/03/1950
@@ -1126,3 +1126,29 @@ Maria Medeiros
 6051
 6
 5
+2
+1
+Millhouse
+10/02/1983
+123412341234
+145
+2822
+750937142131
+13
+8188
+1
+057362161744
+40
+6616
+1
+190336522238
+13
+8188
+1
+481847175894
+42
+6616
+1
+882838387679
+13
+58745

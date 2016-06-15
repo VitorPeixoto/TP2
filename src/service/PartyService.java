@@ -1,5 +1,6 @@
 package service;
 
+import entities.Candidate;
 import entities.Party;
 
 import java.util.ArrayList;
@@ -9,10 +10,23 @@ import java.util.regex.Pattern;
  * Created by Peixoto on 24/05/2016.
  */
 public class PartyService implements Services {
-    private static ArrayList<Party> parties = new ArrayList<>();
+    private static PartyService singleService = null;
+
+    private ArrayList<Party> parties;
+
+    private PartyService() {
+        parties = new ArrayList<>();
+    }
 
     static {
         pao.useDelimiter(Pattern.compile("[\\n;]"));
+    }
+
+    public static PartyService getSingleService() {
+        if(singleService == null) {
+            singleService = new PartyService();
+        }
+        return singleService;
     }
 
     @Override
@@ -61,7 +75,7 @@ public class PartyService implements Services {
     public void search() {
         System.out.println("Digite o número do Partido: ");
         int number = pao.nextInt();
-        for(Party p: parties){
+        for(Party p : parties){
             if(p.getNumber() == number){
                 System.out.println(p.toString());
             }
@@ -90,7 +104,11 @@ public class PartyService implements Services {
         }
     }
 
-    public static boolean verifyExistence(int number){
+    public ArrayList<Party> getParties() {
+        return parties;
+    }
+
+    public boolean verifyExistence(int number){
         for (Party p : parties) {
             if(p.getNumber() == number) {
                 return true;
@@ -99,7 +117,7 @@ public class PartyService implements Services {
         return false;
     }
 
-    public static Party returnExisting(int number){
+    public Party returnExisting(int number){
         for(Party p : parties){
             if(p.getNumber() == number){
                 return p;

@@ -31,4 +31,9 @@ public class Mayor extends Candidate{
     public String toString(){
         return "Prefeito "+ getCode() +" : "+ getName();
     }
+
+    public String allData(){
+        return "Prefeito: \n"+ super.toString() +"\nVice-Prefeito: "+ vicemayor.getName();
+    }
+
 }

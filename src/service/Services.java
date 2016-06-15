@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Scanner;
  */
 public interface Services {
     Scanner pao = new Scanner(System.in);
+
     void register();
     void delete();
     void list();
@@ -28,6 +31,23 @@ public interface Services {
         System.out.println("╠"+middle+"╣");
         for (int i = 0; i < entries.length; i++) {
             System.out.println("║ "+(i+1)+" - "+entries[i]+repeat(" ", spacingSize-entries[i].length()-5)+"║");
+        }
+        System.out.println("╚"+middle+"╝");
+        System.out.print("> Opção: ");
+        return pao.nextInt();
+    }
+
+    static int printMenu(String menuTitle, HashMap<Integer, String> map) {
+        int size        = 30,
+            spacingSize = size + 18;
+
+        String middle = (repeat("═", size));
+
+        System.out.println("╔"+middle+"╗");
+        System.out.println("║"+menuTitle+repeat(" ", spacingSize-menuTitle.length())+"║");
+        System.out.println("╠"+middle+"╣");
+        for (Integer i : map.keySet()) {
+            System.out.println("║ "+i+" - "+map.get(i)+repeat(" ", spacingSize-map.get(i).length()-5)+"║");
         }
         System.out.println("╚"+middle+"╝");
         System.out.print("> Opção: ");

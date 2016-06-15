@@ -13,13 +13,26 @@ import java.util.regex.Pattern;
  * Created by Peixoto on 24/05/2016.
  */
 public class CandidateService implements Services {
-    private static ArrayList<Candidate> candidates = new ArrayList<>();
+    private static CandidateService singleService  = null;
+    private PartyService partyService = PartyService.getSingleService();
+    private ArrayList<Candidate> candidates;
 
     private final String[] candidatesMenu = {"Prefeito",
                                              "Vereador"};
 
+    private CandidateService() {
+        candidates = new ArrayList<>();
+    }
+
     static {
         pao.useDelimiter(Pattern.compile("[\\n;]"));
+    }
+
+    public static CandidateService getSingleService() {
+        if(singleService == null) {
+            singleService = new CandidateService();
+        }
+        return singleService;
     }
 
     @Override
@@ -43,7 +56,7 @@ public class CandidateService implements Services {
 
                 System.out.println("Número do partido: ");
                 int mayorPartyNumber = pao.nextInt(); //Verificar se o partido existe
-                Party mayorParty = PartyService.returnExisting(mayorPartyNumber);
+                Party mayorParty = partyService.returnExisting(mayorPartyNumber);
                 if(mayorParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
@@ -65,13 +78,13 @@ public class CandidateService implements Services {
 
                 System.out.println("Número do partido: ");
                 int viceMayorPartyNumber = pao.nextInt(); //Verificar se o partido existe
-                Party viceMayorParty          = PartyService.returnExisting(viceMayorPartyNumber);
+                Party viceMayorParty          = partyService.returnExisting(viceMayorPartyNumber);
                 if(viceMayorParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
                 }
 
-                if(CandidateService.verifyExistence(mayorCode)){
+                if(verifyExistence(mayorCode)){
                     System.out.println("Candidato já registrado.");
                 }
                 else{
@@ -98,7 +111,7 @@ public class CandidateService implements Services {
 
                 System.out.println("Número do partido: ");
                 int councilmanPartyNumber = pao.nextInt();
-                Party councilmanParty          = PartyService.returnExisting(councilmanPartyNumber);
+                Party councilmanParty          = partyService.returnExisting(councilmanPartyNumber);
                 if(councilmanParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
@@ -153,7 +166,7 @@ public class CandidateService implements Services {
 
     @Override
     public void list() {
-        for(Candidate c: candidates){
+        for(Candidate c : candidates){
             if(c instanceof Mayor){
                 System.out.println(((Mayor) c).toString());
             }else {
@@ -209,7 +222,7 @@ public class CandidateService implements Services {
                     System.out.println("Número do Partido: ");
                     int MayorPartyNumber = pao.nextInt();
                     if(MayorPartyNumber != -1) {
-                        Party MayorParty = PartyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
+                        Party MayorParty = partyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
                         if (MayorParty == null) {
                             System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
                         } else {
@@ -236,7 +249,7 @@ public class CandidateService implements Services {
                     System.out.println("Partido do Vice-Prefeito: ");
                     int ViceMayorPartyNumber = pao.nextInt();
                     if(ViceMayorPartyNumber != -1) {
-                        Party MayorParty = PartyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
+                        Party MayorParty = partyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
                         if (MayorParty == null) {
                             System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
                         } else {
@@ -266,7 +279,7 @@ public class CandidateService implements Services {
                     System.out.println("Partido: ");
                     int CouncilmanPartyNumber = pao.nextInt();
                     if(CouncilmanPartyNumber != -1) {
-                        Party CouncilmanParty = PartyService.returnExisting(CouncilmanPartyNumber);//Verificar se o partido existe
+                        Party CouncilmanParty = partyService.returnExisting(CouncilmanPartyNumber);//Verificar se o partido existe
                         if (CouncilmanParty == null) {
                             System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
                         } else {
@@ -280,7 +293,11 @@ public class CandidateService implements Services {
         }
     }
 
-    public static boolean verifyExistence(int code){
+    public ArrayList<Candidate> getCandidates() {
+        return candidates;
+    }
+
+    public boolean verifyExistence(int code){
         for (Candidate c : candidates) {
             if(c.getCode()  == code) {
                 return true;
@@ -289,7 +306,7 @@ public class CandidateService implements Services {
         return false;
     }
 
-    public static Candidate returnExisting(int code){
+    public Candidate returnExisting(int code){
         for(Candidate c : candidates) {
             if(c.getCode() == code){
                 return c;

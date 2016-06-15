@@ -62,4 +62,8 @@ public abstract class Candidate {
     public void setParty(Party party) {
         this.party = party;
     }
+
+    public String toString(){
+        return "Codigo: "+ this.code + "\nNome: "+ this.name +"\nE-mail: "+ this.mail +"\nData de Nascimento: "+ this.birthDate +"\nPartido: "+ this.party.getInitials();
+    }
 }

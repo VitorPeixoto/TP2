@@ -14,4 +14,8 @@ public class Councilman extends Candidate {
     public String toString(){
         return "Vereador "+ getCode() +" : "+ getName();
     }
+
+    public String allData(){
+        return "Vereador: \n"+ super.toString();
+    }
 }
