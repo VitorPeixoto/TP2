@@ -217,8 +217,8 @@ public class Election {
         return president;
     }
 
-    public int[] getTotalVotes() {
-        return totalVotes;
+    public int getTotalVotes(int candidate) {
+        return totalVotes[candidate];
     }
 
     public int[] getNullVotes() {
@@ -229,22 +229,14 @@ public class Election {
         return whiteVotes;
     }
 
-    public HashMap<Integer, Integer> getMayorVotes() {
-        return mayorVotes;
+    public int getMayorVotes(int code) {
+        return mayorVotes.get(code);
     }
 
-    public HashMap<Integer, Integer> getCouncilmanVotes() {
-        return councilmanVotes;
+    public int getCouncilmanVotes(int code) {
+        return councilmanVotes.get(code);
     }
 
-    public HashMap<Integer, String> getMayorEntries() {
-        return mayorEntries;
-    }
-
-    public HashMap<Integer, String> getCouncilmanEntries() {
-        return councilmanEntries;
-    }
-
-    public final int MAYOR      = 0,
-                     COUNCILMAN = 1;
+    public static final int MAYOR      = 0,
+                            COUNCILMAN = 1;
 }

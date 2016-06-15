@@ -1,9 +1,11 @@
+import entities.Candidate;
 import entities.Election;
 import service.CandidateService;
 import service.ElectorService;
 import service.PartyService;
 import service.Services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -114,6 +116,7 @@ public class Main {
                     break;
                 case 4:
                     //@TODO fazer os relatórios
+
                     reports();
                     break;
             }
@@ -121,7 +124,40 @@ public class Main {
     }
 
     private static void reports() {
+        int[] Votes = {0,0};
+        int totalVotes = 0, totalWhiteVotes = 0, totalNullVotes = 0;
+        int[] whiteVotes = {0,0};
+        int[] nullVotes  = {0,0};
+        int i;
+        ArrayList<Candidate> candidates = candidateService.getCandidates();
 
+        for(i=0;i<elections.size();i++) {
+            Votes[0] = Votes[0] + elections.get(i).getTotalVotes(Election.MAYOR);
+            Votes[1] = Votes[1] + elections.get(i).getTotalVotes(Election.COUNCILMAN);
+
+            whiteVotes = elections.get(i).getWhiteVotes();
+            totalWhiteVotes = totalWhiteVotes + whiteVotes[0] + whiteVotes[1];
+
+            nullVotes = elections.get(i).getNullVotes();
+            totalNullVotes      = totalNullVotes + nullVotes[0] + nullVotes[1];
+
+            totalVotes = totalVotes + Votes[0] + Votes[1] + whiteVotes[0] + whiteVotes[1] + nullVotes[0] + nullVotes[1];
+        }
+        //@TODO FINALIZAR ULTIMO 'FOR'
+        i = 0;
+        for (Candidate c: candidates) {
+            Votes[0] = elections.get(i).getTotalVotes(Election.MAYOR);
+            //Votes[1] = elections.get(i).getTotalVotes(Election.COUNCILMAN);
+
+            System.out.println(c.getName() +"("+ c.getCode() +") : "+ ((Votes[0]/totalVotes)*100) +"% ("+ Votes[0] +" votos)");
+
+        }
+
+        //Votos brancos, nulos e total de votos das eleições
+        System.out.println();
+        System.out.println("Votos brancos: "+ ((totalWhiteVotes/totalVotes)*100) +"% ("+ totalWhiteVotes +" votos)");
+        System.out.println("Votos nulos: "+ ((totalNullVotes/totalVotes)*100) +"% ("+ totalNullVotes +" votos)");
+        System.out.println("Total de Votos: "+ totalVotes + " votos");
     }
 
     private static void callService(String serviceName, Services service, int serviceOption) {
