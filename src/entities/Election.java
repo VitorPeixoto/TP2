@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class Election {
     private static Scanner pao = Services.pao;
-    private ElectorService electorService = ElectorService.getSingleService();
+    private ElectorService electorService   = ElectorService.getSingleService();
     private ArrayList<Candidate> candidates = CandidateService.getSingleService().getCandidates();
 
     private Elector president;
@@ -104,7 +104,7 @@ public class Election {
     }
 
     private void printResults() {
-        orderCandidatesByVotes();
+        CandidateService.getSingleService().orderCandidatesByVotes(mayorVotes, councilmanVotes);
         System.out.println("Resultado da eleição: ");
         System.out.println("Hora inicial: "+opening.toString());
         System.out.println("Hora final: "  +ending.toString());
@@ -176,22 +176,6 @@ public class Election {
         }
     }
 
-    private void orderCandidatesByVotes() {
-        Collections.sort(candidates, new Comparator<Candidate>() {
-            @Override
-            public int compare(Candidate o1, Candidate o2) {
-                int o1Votes, o2Votes;
-                if(o1 instanceof Mayor) o1Votes = mayorVotes.get(o1.getCode());
-                else                    o1Votes = councilmanVotes.get(o1.getCode());
-                if(o2 instanceof Mayor) o2Votes = mayorVotes.get(o2.getCode());
-                else                    o2Votes = councilmanVotes.get(o2.getCode());
-
-                return o1Votes - o2Votes;
-            }
-        });
-        Collections.reverse(candidates);
-    }
-
     private void cancelVoting() {
         canceled = true;
     }
@@ -221,6 +205,10 @@ public class Election {
         return totalVotes[candidate];
     }
 
+    public int[] getTotalVotes() {
+        return totalVotes;
+    }
+
     public int[] getNullVotes() {
         return nullVotes;
     }
@@ -235,6 +223,14 @@ public class Election {
 
     public int getCouncilmanVotes(int code) {
         return councilmanVotes.get(code);
+    }
+
+    public HashMap<Integer, Integer> getMayorVotes() {
+        return mayorVotes;
+    }
+
+    public HashMap<Integer, Integer> getCouncilmanVotes() {
+        return councilmanVotes;
     }
 
     public static final int MAYOR      = 0,

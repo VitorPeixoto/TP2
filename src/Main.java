@@ -1,5 +1,7 @@
 import entities.Candidate;
+import entities.Councilman;
 import entities.Election;
+import entities.Mayor;
 import service.CandidateService;
 import service.ElectorService;
 import service.PartyService;
@@ -115,49 +117,79 @@ public class Main {
                     callService("Eleitores", electorService, serviceOption);
                     break;
                 case 4:
-                    //@TODO fazer os relatórios
-
                     reports();
                     break;
             }
         }
     }
 
-    private static void reports() {
-        int[] Votes = {0,0};
-        int totalVotes = 0, totalWhiteVotes = 0, totalNullVotes = 0;
-        int[] whiteVotes = {0,0};
-        int[] nullVotes  = {0,0};
-        int i;
-        ArrayList<Candidate> candidates = candidateService.getCandidates();
-
-        for(i=0;i<elections.size();i++) {
-            Votes[0] = Votes[0] + elections.get(i).getTotalVotes(Election.MAYOR);
-            Votes[1] = Votes[1] + elections.get(i).getTotalVotes(Election.COUNCILMAN);
-
-            whiteVotes = elections.get(i).getWhiteVotes();
-            totalWhiteVotes = totalWhiteVotes + whiteVotes[0] + whiteVotes[1];
-
-            nullVotes = elections.get(i).getNullVotes();
-            totalNullVotes      = totalNullVotes + nullVotes[0] + nullVotes[1];
-
-            totalVotes = totalVotes + Votes[0] + Votes[1] + whiteVotes[0] + whiteVotes[1] + nullVotes[0] + nullVotes[1];
+    private static HashMap<Integer, Integer> sumElectionHashMaps(HashMap<Integer, Integer> map1, HashMap<Integer, Integer> map2) {
+        HashMap<Integer, Integer> map3 = new HashMap<>();
+        for (Integer key : map1.keySet()) {
+            map3.put(key, map1.get(key)+map2.get(key));
         }
-        //@TODO FINALIZAR ULTIMO 'FOR'
-        i = 0;
-        for (Candidate c: candidates) {
-            Votes[0] = elections.get(i).getTotalVotes(Election.MAYOR);
-            //Votes[1] = elections.get(i).getTotalVotes(Election.COUNCILMAN);
+        return map3;
+    }
 
-            System.out.println(c.getName() +"("+ c.getCode() +") : "+ ((Votes[0]/totalVotes)*100) +"% ("+ Votes[0] +" votos)");
+    private static int[] sumElectionArrays(int[] array1, int[] array2) {
+        int[] array3 = new int[array1.length];
+        for (int i = 0; i < array1.length; i++) {
+            array3[i] = array1[i] + array2[i];
+        }
+        return array3;
+    }
 
+    private static void reports() {
+        HashMap<Integer, Integer> finalMayorVotes      = null;
+        HashMap<Integer, Integer> finalCouncilmanVotes = null;
+
+        int[] totalVotes      = new int[2];
+        int[] totalWhiteVotes = new int[2];
+        int[] totalNullVotes  = new int[2];
+        for (Integer section : elections.keySet()) {
+            if(finalMayorVotes == null) {
+                finalMayorVotes      = elections.get(section).getMayorVotes();
+                finalCouncilmanVotes = elections.get(section).getCouncilmanVotes();
+                totalVotes           = elections.get(section).getTotalVotes();
+                totalWhiteVotes      = elections.get(section).getWhiteVotes();
+                totalNullVotes       = elections.get(section).getNullVotes();
+            }
+            else {
+                finalMayorVotes      = sumElectionHashMaps(finalMayorVotes,      elections.get(section).getMayorVotes());
+                finalCouncilmanVotes = sumElectionHashMaps(finalCouncilmanVotes, elections.get(section).getCouncilmanVotes());
+
+                totalVotes           = sumElectionArrays(totalVotes,      elections.get(section).getTotalVotes());
+                totalWhiteVotes      = sumElectionArrays(totalWhiteVotes, elections.get(section).getWhiteVotes());
+                totalNullVotes       = sumElectionArrays(totalNullVotes,  elections.get(section).getNullVotes());
+            }
+        }
+
+        CandidateService.getSingleService().orderCandidatesByVotes(finalMayorVotes, finalCouncilmanVotes);
+        ArrayList<Candidate> candidates = CandidateService.getSingleService().getCandidates();
+        //Prefeito
+        System.out.println("Resultado da eleição para prefeito: ");
+        for (Candidate c : candidates) {
+            if(c instanceof Mayor) System.out.println("\t"+c.getName() +" ("+ c.getCode() +") : "+ ((finalMayorVotes.get(c.getCode())/(float)totalVotes[MAYOR])*100) +"% ("+ finalMayorVotes.get(c.getCode()) +" votos);");
         }
 
         //Votos brancos, nulos e total de votos das eleições
         System.out.println();
-        System.out.println("Votos brancos: "+ ((totalWhiteVotes/totalVotes)*100) +"% ("+ totalWhiteVotes +" votos)");
-        System.out.println("Votos nulos: "+ ((totalNullVotes/totalVotes)*100) +"% ("+ totalNullVotes +" votos)");
-        System.out.println("Total de Votos: "+ totalVotes + " votos");
+        System.out.println("Votos brancos: " + ((totalWhiteVotes[MAYOR]/(float)totalVotes[MAYOR])*100) +"% ("+ totalWhiteVotes[MAYOR] +" votos);");
+        System.out.println("Votos nulos: "   + ((totalNullVotes[MAYOR] /(float)totalVotes[MAYOR])*100) +"% ("+ totalNullVotes[MAYOR]  +" votos);");
+        System.out.println("Total de Votos: "+ totalVotes[MAYOR] + " votos;");
+
+
+        //Vereador
+        System.out.println("Resultado da eleição para vereador: ");
+        for (Candidate c : candidates) {
+            if(c instanceof Councilman) System.out.println("\t"+c.getName() +" ("+ c.getCode() +") : "+ ((finalCouncilmanVotes.get(c.getCode())/(float)totalVotes[COUNCILMAN])*100) +"% ("+ finalCouncilmanVotes.get(c.getCode()) +" votos);");
+        }
+
+        //Votos brancos, nulos e total de votos das eleições
+        System.out.println();
+        System.out.println("Votos brancos: " + ((totalWhiteVotes[COUNCILMAN]/(float)totalVotes[COUNCILMAN])*100) +"% ("+ totalWhiteVotes[COUNCILMAN] +" votos);");
+        System.out.println("Votos nulos: "   + ((totalNullVotes[COUNCILMAN] /(float)totalVotes[COUNCILMAN])*100) +"% ("+ totalNullVotes[COUNCILMAN]  +" votos);");
+        System.out.println("Total de Votos: "+ totalVotes[COUNCILMAN] + " votos;");
     }
 
     private static void callService(String serviceName, Services service, int serviceOption) {
@@ -181,5 +213,6 @@ public class Main {
             serviceOption = Services.printMenu(serviceName, servicesMenuEntries);
         }
     }
-
+    public static final int MAYOR      = 0,
+                            COUNCILMAN = 1;
 }

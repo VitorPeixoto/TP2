@@ -7,8 +7,7 @@ import entities.Party;
 import exceptions.WrongNumberOfDigitsException;
 
 import java.lang.invoke.WrongMethodTypeException;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -328,4 +327,19 @@ public class CandidateService implements Services {
         return null;
     }
 
+    public void orderCandidatesByVotes(HashMap<Integer, Integer> mayorVotes, HashMap<Integer, Integer> councilmanVotes) {
+        Collections.sort(candidates, new Comparator<Candidate>() {
+            @Override
+            public int compare(Candidate o1, Candidate o2) {
+                int o1Votes, o2Votes;
+                if(o1 instanceof Mayor) o1Votes = mayorVotes.get(o1.getCode());
+                else                    o1Votes = councilmanVotes.get(o1.getCode());
+                if(o2 instanceof Mayor) o2Votes = mayorVotes.get(o2.getCode());
+                else                    o2Votes = councilmanVotes.get(o2.getCode());
+
+                return o1Votes - o2Votes;
+            }
+        });
+        Collections.reverse(candidates);
+    }
 }
