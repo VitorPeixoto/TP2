@@ -1,10 +1,13 @@
 package entities;
 
+import graphics.BallotBoxFrame;
 import service.CandidateService;
 import service.ElectorService;
 import service.Services;
 
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.*;
 
 /**
@@ -34,12 +37,17 @@ public class Election {
 
     private ArrayList<String> alreadyVoted = new ArrayList<>();
 
+    private BallotBoxFrame ballotBoxFrame;
+
+    private static final Object lock = new Object();
+
     public Election(String presidentName, int zone, int section, String title, String birthDate, int numberOfElectors) {
         electorService.registerPresident(presidentName, birthDate, title, zone, section);
         president = electorService.returnExistant(title);
         opening   = new Date();
 
         initializeCollections();
+        ballotBoxFrame = new BallotBoxFrame(mayorEntries, councilmanEntries, lock);
         initializeVoting(numberOfElectors);
     }
 
@@ -49,36 +57,50 @@ public class Election {
             String electorTitle = pao.next();
             if(electorService.existsElectorInZoneAndSection(electorTitle, president.getZone(), president.getSection()) &&
                !alreadyVoted.contains(electorTitle)) {
-                int confirmOption = 1;
+                ballotBoxFrame.setVisible(true);
+                int[] votes;
+                synchronized(lock) {
+                    while (!ballotBoxFrame.isDone())
+                        try {
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    ballotBoxFrame.setVisible(false);
+                    votes = ballotBoxFrame.getVote();
+                }
+                    //}
+                //};
+                /*int confirmOption = 1;
                 while(confirmOption != 0) {
                     int vote = Services.printMenu("Candidatos a Prefeito", mayorEntries);
                     confirmOption = JOptionPane.showConfirmDialog(null, "Deseja confirmar seu voto " + vote + "?", "Confirmação de voto", JOptionPane.YES_NO_OPTION);
-                    if(confirmOption == 1) continue;
-                    if (mayorVotes.keySet().contains(vote)) {
-                        mayorVotes.replace(vote, mayorVotes.get(vote) + 1);
-                    } else if (vote == 99) {
+                    if(confirmOption == 1) continue;*/
+                    if (mayorVotes.keySet().contains(votes[0])) {
+                        mayorVotes.replace(votes[0], mayorVotes.get(votes[0]) + 1);
+                    } else if (votes[0] == 99) {
                         this.whiteVotes[MAYOR]++;
                     } else {
                         this.nullVotes[MAYOR]++;
                     }
                     totalVotes[MAYOR]++;
-                }
+                /*}*/
 
-                confirmOption = 1;
+                /*confirmOption = 1;
                 while(confirmOption != 0) {
                     int vote = Services.printMenu("Candidatos a Vereador", councilmanEntries);
                     confirmOption = JOptionPane.showConfirmDialog(null, "Deseja confirmar seu voto " + vote + "?", "Confirmação de voto", JOptionPane.YES_NO_OPTION);
-                    if(confirmOption == 1) continue;
-                    if (councilmanVotes.keySet().contains(vote)) {
-                        councilmanVotes.replace(vote, councilmanVotes.get(vote) + 1);
-                    } else if (vote == 9999) {
+                    if(confirmOption == 1) continue;*/
+                    if (councilmanVotes.keySet().contains(votes[1])) {
+                        councilmanVotes.replace(votes[1], councilmanVotes.get(votes[1]) + 1);
+                    } else if (votes[1] == 9999) {
                         this.whiteVotes[COUNCILMAN]++;
                     } else {
                         this.nullVotes[COUNCILMAN]++;
                     }
                     totalVotes[COUNCILMAN]++;
                     alreadyVoted.add(electorTitle);
-                }
+                /*}*/
                 System.out.println("Voto registrado (" + totalVotes[MAYOR] + "/" + numberOfElectors + ").");
             }
             else if(alreadyVoted.contains(electorTitle)){
@@ -178,6 +200,7 @@ public class Election {
 
     private void cancelVoting() {
         canceled = true;
+        ballotBoxFrame.dispose();
     }
 
     public boolean isCanceled() {
@@ -235,4 +258,8 @@ public class Election {
 
     public static final int MAYOR      = 0,
                             COUNCILMAN = 1;
+
+    public void close() {
+        ballotBoxFrame.dispose();
+    }
 }

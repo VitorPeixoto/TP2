@@ -2,11 +2,13 @@ import entities.Candidate;
 import entities.Councilman;
 import entities.Election;
 import entities.Mayor;
+import graphics.BallotBoxFrame;
 import service.CandidateService;
 import service.ElectorService;
 import service.PartyService;
 import service.Services;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -51,6 +53,8 @@ public class Main {
                 case 2:
                     electionMenu();
                     break;
+                case 3:
+                    return;
             }
         }
     }
@@ -90,6 +94,7 @@ public class Main {
                     if(election.isCanceled()) break;
                     //Adiciona eleição ao HashMap
                     elections.put(presidentSection, election);
+                    election.close();
                     break;
                 case 2:
                     break;
