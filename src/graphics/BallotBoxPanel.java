@@ -1,12 +1,14 @@
 package graphics;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
 /**
@@ -31,12 +33,15 @@ public class BallotBoxPanel extends JComponent {
                                      councilmanEntries;
 
     private Object lock;
+    private Clip confirmClip, lastConfirmClip;
     private int[] voto = new int[2];
 
     public BallotBoxPanel(HashMap<Integer, String> mayorEntries, HashMap<Integer, String> councilmanEntries, Object lock) {
         this.mayorEntries      = mayorEntries;
         this.councilmanEntries = councilmanEntries;
         this.lock            = lock;
+        initSounds();
+
 
         number1        = new JLabel("", SwingConstants.CENTER);
         number2        = new JLabel("", SwingConstants.CENTER);
@@ -130,6 +135,30 @@ public class BallotBoxPanel extends JComponent {
         initNumPad();
     }
 
+    private void initSounds() {
+        try {
+            // Open an audio input stream.
+            URL confirm     = BallotBoxPanel.class.getClassLoader().getResource("sounds/Confirm.wav");
+            URL lastConfirm = BallotBoxPanel.class.getClassLoader().getResource("sounds/LastConfirm.wav");
+
+            AudioInputStream confirmIn     = AudioSystem.getAudioInputStream(confirm);
+            AudioInputStream lastConfirmIn = AudioSystem.getAudioInputStream(lastConfirm);
+
+            // Get a sound clip resource.
+            this.confirmClip     = AudioSystem.getClip();
+            this.lastConfirmClip = AudioSystem.getClip();
+
+            // Open audio clip and load samples from the audio input stream.
+            confirmClip.open(confirmIn);
+            lastConfirmClip.open(lastConfirmIn);
+
+            confirmIn.close();
+            lastConfirmIn.close();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void nextNumber(int number) {
         nomeLabel.setText("");
         if(number1.getText().equals("")) {
@@ -201,6 +230,7 @@ public class BallotBoxPanel extends JComponent {
             number1.setBorder(BorderFactory.createLineBorder(Color.black, 3));
             number2.setBorder(BorderFactory.createLineBorder(Color.black, 3));
             voto[0] = Integer.parseInt(number1.getText()+number2.getText());
+            confirmClip.start();
             corrige();
             candidateLabel.setText("Vereador");
         }
@@ -223,6 +253,7 @@ public class BallotBoxPanel extends JComponent {
             number3.setBorder(BorderFactory.createLineBorder(Color.black, 3));
             number2.setBorder(BorderFactory.createLineBorder(Color.black, 3));
             voto[1] = Integer.parseInt(number1.getText()+number2.getText()+number3.getText()+number4.getText());
+            lastConfirmClip.start();
             corrige();
             done = true;
             synchronized (lock) {

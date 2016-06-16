@@ -8,7 +8,10 @@ import service.ElectorService;
 import service.PartyService;
 import service.Services;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -43,6 +46,7 @@ public class Main {
 
     public static void main(String[] args) {
         int option = 0;
+
         while(option != 3) {
             option = Services.printMenu("Eleições", mainMenuEntries);
 
