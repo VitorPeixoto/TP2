@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -75,17 +76,10 @@ public class Main {
                     System.out.println("Nome do presidente: ");
                     String presidentName = pao.next();
 
-                    System.out.println("Data de nascimento: ");
-                    String presidentBirth = pao.next();
-
-                    System.out.println("Título: ");
-                    String presidentTitle = pao.next();
-
-                    System.out.println("Zona: ");
-                    int presidentZone = pao.nextInt();
-
-                    System.out.println("Seção: ");
-                    int presidentSection = pao.nextInt();
+                    String presidentBirth = Services.readDateAsString("Data de nascimento: ");
+                    String presidentTitle = Services.readIntegerAsString("Título: ");
+                    int presidentZone     = Services.readInteger("Zona: ");
+                    int presidentSection  = Services.readInteger("Seção: ");
 
                     if(elections.keySet().contains(presidentSection)) {
                         System.out.println("Este presidente já apurou os votos.");

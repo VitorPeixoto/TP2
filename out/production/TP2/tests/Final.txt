@@ -241,8 +241,8 @@ sofiagomeslessa@candidato.com
 1
 1
 58
-Arthur Carvalho D’Ávila Vilela
-arthurcarvalhod’ávilavilela@candidato.com
+Arthur Carvalho Bittar Vilela
+arthurcarvalhobittarvilela@candidato.com
 19/10/1967
 36
 88
@@ -289,8 +289,8 @@ sofiafernandes@candidato.com
 1
 1
 95
-Maria Silverstone D’Ávila Duarte
-mariasilverstoned’áviladuarte@candidato.com
+Maria Silverstone Bittar Duarte
+mariasilverstonebittarduarte@candidato.com
 16/04/1986
 23
 74
@@ -427,8 +427,8 @@ gustavomoraescarvalho@candidato.com
 1
 2
 6228
-Arthur D’Ávila Rios
-arthurd’ávilarios@candidato.com
+Arthur Bittar Rios
+arthurbittarrios@candidato.com
 27/08/1985
 40
 1
@@ -1124,6 +1124,7 @@ Maria Medeiros
 426859419044
 270
 6051
+----------------------------------------------------------------------------
 6
 5
 2

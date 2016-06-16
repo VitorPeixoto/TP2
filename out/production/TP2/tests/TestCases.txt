@@ -1,0 +1,112 @@
+2
+1
+1
+70
+Miguel Soares
+email@teste.com
+24/05/1960
+13
+71
+Miguel Moraes
+miguelmoraes@BIRLLLL.com
+10/10/1988
+40
+1
+1
+130
+Marcio Martins
+marciomartins@BODYBUILDER.com
+16/06/1979
+45
+69
+Marcos Martins
+marcosmartins@TREZEMEMO.com
+10/10/1910
+45
+1
+1
+45
+Marcio Martins
+marciomartins@BODYBUILDER.com
+16/06/1979
+45
+69
+Marcos Martins
+marcosmartins@TREZEMEMO.com
+10/10/1910
+45
+1
+2
+1234
+Antônio dos Santos
+email@teste3.com
+09/12/1959
+65
+1
+2
+98765
+Wesley Paiva
+email@teste3.com
+15/01/1980
+14
+1
+2
+9876
+Wesley Paiva
+email@teste3.com
+15/01/1980
+14
+---------------------------------------------------------------------
+6
+3
+1
+Eleitor 1
+25/04/1990
+13579135791
+40
+258
+1
+Eleitor 2
+20/10/1995
+98765432109
+40
+369
+1
+Eleitor 3
+30/11/1992
+12345678912
+40
+147
+---------------------------------------------------------------
+6
+5
+2
+1
+Presidente 1
+10/04/1997
+123412341234
+40
+258
+13579135791
+2
+1
+Presidente 2
+06/09/1996
+432143214321
+40
+369
+98765432109
+2
+1
+Presidente 3
+19/08/1995
+000000000000
+40
+147
+12345678912
+2
+Presidente 4
+16/06/1980
+586565869584
+145
+2822

@@ -42,8 +42,7 @@ public class CandidateService implements Services {
         switch(x){
             case 1:
                 System.out.println("PREFEITO");
-                System.out.print("Codigo: ");
-                int mayorCode = pao.nextInt();
+                int mayorCode = Services.readInteger("Código: ");
 
                 System.out.println("Nome: ");
                 String mayorName = pao.next();
@@ -51,12 +50,10 @@ public class CandidateService implements Services {
                 System.out.println("E-mail: ");
                 String mayorMail = pao.next();
 
-                System.out.println("Data de Nascimento: ");
-                String mayorBirth   = pao.next();
+                String mayorBirth   = Services.readDateAsString("Data de Nascimento: ");
                 Date mayorBirthDate = new Date(brazilianToAmerican(mayorBirth)); // Conversao de string em data
 
-                System.out.println("Número do partido: ");
-                int mayorPartyNumber = pao.nextInt(); //Verificar se o partido existe
+                int mayorPartyNumber = Services.readInteger("Número do partido: "); //Verificar se o partido existe
                 Party mayorParty = partyService.returnExisting(mayorPartyNumber);
                 if(mayorParty == null) {
                     System.out.println("Partido não encontrado.");
@@ -64,8 +61,7 @@ public class CandidateService implements Services {
                 }
 
                 System.out.println("VICE-PREFEITO");
-                System.out.println("Codigo: ");
-                int viceMayorCode = pao.nextInt();
+                int viceMayorCode = Services.readInteger("Código: ");
 
                 System.out.println("Nome: ");
                 String viceMayorName = pao.next();
@@ -73,13 +69,11 @@ public class CandidateService implements Services {
                 System.out.println("E-mail: ");
                 String viceMayorMail = pao.next();
 
-                System.out.println("Data de Nascimento: ");
-                String viceMayorBirth   = pao.next();
+                String viceMayorBirth   = Services.readDateAsString("Data de Nascimento: ");
                 Date viceMayorBirthDate = new Date(brazilianToAmerican(viceMayorBirth)); // Conversao de string em data
 
-                System.out.println("Número do partido: ");
-                int viceMayorPartyNumber = pao.nextInt(); //Verificar se o partido existe
-                Party viceMayorParty          = partyService.returnExisting(viceMayorPartyNumber);
+                int viceMayorPartyNumber = Services.readInteger("Número do partido: "); //Verificar se o partido existe
+                Party viceMayorParty     = partyService.returnExisting(viceMayorPartyNumber);
                 if(viceMayorParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
@@ -103,8 +97,7 @@ public class CandidateService implements Services {
                 break;
             case 2:
                 System.out.println("VEREADOR");
-                System.out.println("Codigo: ");
-                int councilmanCode = pao.nextInt();
+                int councilmanCode = Services.readInteger("Código: ");
 
                 System.out.println("Nome: ");
                 String councilmanName = pao.next();
@@ -112,13 +105,11 @@ public class CandidateService implements Services {
                 System.out.println("E-mail: ");
                 String councilmanMail = pao.next();
 
-                System.out.println("Data de Nascimento: ");
-                String concilmanBirth   = pao.next();
+                String concilmanBirth    = Services.readDateAsString("Data de Nascimento: ");
                 Date councilmanBirthDate = new Date(brazilianToAmerican(concilmanBirth)); // Conversao de string em data
 
-                System.out.println("Número do partido: ");
-                int councilmanPartyNumber = pao.nextInt();
-                Party councilmanParty          = partyService.returnExisting(councilmanPartyNumber);
+                int councilmanPartyNumber = Services.readInteger("Número do partido: "); //Verificar se o partido existe
+                Party councilmanParty     = partyService.returnExisting(councilmanPartyNumber);
                 if(councilmanParty == null) {
                     System.out.println("Partido não encontrado.");
                     return;
@@ -225,20 +216,18 @@ public class CandidateService implements Services {
                     if(!mail.equals("-1")) {
                         c.setMail(mail);
                     }
-                    System.out.println("Data de Nascimento: ");
-                    String date = pao.next();
+                    String date = Services.readDateAsString("Data de Nascimento: ", "-1");
                     if(!date.equals("-1")) {
                         Date MayorBirthDate = new Date(brazilianToAmerican(date)); // Conversao de string em data
                         c.setBirthDate(MayorBirthDate);
                     }
-                    System.out.println("Número do Partido: ");
-                    int MayorPartyNumber = pao.nextInt();
-                    if(MayorPartyNumber != -1) {
-                        Party MayorParty = partyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
-                        if (MayorParty == null) {
+                    int mayorPartyNumber = Services.readInteger("Número do Partido: ");
+                    if(mayorPartyNumber != -1) {
+                        Party mayorParty = partyService.returnExisting(mayorPartyNumber);//Verificar se o partido existe
+                        if (mayorParty == null) {
                             System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
                         } else {
-                            c.setParty(MayorParty);
+                            c.setParty(mayorParty);
                         }
                     }
 
@@ -252,20 +241,18 @@ public class CandidateService implements Services {
                     if(!viceMail.equals("-1")) {
                         ((Mayor) c).getVicemayor().setMail(viceMail);
                     }
-                    System.out.println("Data de Nascimento do Vice-Prefeito: ");
-                    String viceDate = pao.next();
+                    String viceDate = Services.readDateAsString("Data de Nascimento do Vice-Prefeito: ", "-1");
                     if(!viceDate.equals("-1")) {
                         Date ViceMayorBirthDate = new Date(brazilianToAmerican(viceDate)); // Conversao de string em data
                         ((Mayor) c).getVicemayor().setBirthDate(ViceMayorBirthDate);
                     }
-                    System.out.println("Partido do Vice-Prefeito: ");
-                    int ViceMayorPartyNumber = pao.nextInt();
-                    if(ViceMayorPartyNumber != -1) {
-                        Party MayorParty = partyService.returnExisting(MayorPartyNumber);//Verificar se o partido existe
-                        if (MayorParty == null) {
+                    int viceMayorPartyNumber = Services.readInteger("Partido do Vice-Prefeito: ");
+                    if(viceMayorPartyNumber != -1) {
+                        Party mayorParty = partyService.returnExisting(mayorPartyNumber);//Verificar se o partido existe
+                        if (mayorParty == null) {
                             System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
                         } else {
-                            ((Mayor) c).getVicemayor().setParty(MayorParty);
+                            ((Mayor) c).getVicemayor().setParty(mayorParty);
                         }
                     }
 

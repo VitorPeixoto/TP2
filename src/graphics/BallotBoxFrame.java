@@ -9,8 +9,8 @@ import java.util.HashMap;
  */
 public class BallotBoxFrame extends JFrame {
     BallotBoxPanel panel;
-    public BallotBoxFrame(HashMap<Integer, String> mayorEntries, HashMap<Integer, String> councilmanEntries, Object lock) {
-        panel = new BallotBoxPanel(mayorEntries, councilmanEntries, lock);
+    public BallotBoxFrame(HashMap<Integer, String> mayorEntries, HashMap<Integer, String> councilmanEntries, HashMap<Integer, String> parties, Object lock) {
+        panel = new BallotBoxPanel(mayorEntries, councilmanEntries, parties, lock);
         this.add(panel);
 
         this.setSize(1222, 455);
@@ -18,13 +18,13 @@ public class BallotBoxFrame extends JFrame {
         this.setUndecorated(true);
         this.setBackground(new Color(0, 0, 0, 0));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
     }
 
     public void setVisible(boolean bool) {
         if(bool) {
             panel.setDone(false);
             panel.setVereador(false);
+            panel.restartClips();
         }
         super.setVisible(bool);
     }

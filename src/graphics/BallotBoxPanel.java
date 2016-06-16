@@ -1,5 +1,7 @@
 package graphics;
 
+import service.Services;
+
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -30,18 +32,19 @@ public class BallotBoxPanel extends JComponent {
     private boolean vereador = false, done = false;
 
     private HashMap<Integer, String> mayorEntries,
-                                     councilmanEntries;
+                                     councilmanEntries,
+                                     partyEntries;
 
     private Object lock;
     private Clip confirmClip, lastConfirmClip;
     private int[] voto = new int[2];
 
-    public BallotBoxPanel(HashMap<Integer, String> mayorEntries, HashMap<Integer, String> councilmanEntries, Object lock) {
+    public BallotBoxPanel(HashMap<Integer, String> mayorEntries, HashMap<Integer, String> councilmanEntries, HashMap<Integer, String> partyEntries, Object lock) {
         this.mayorEntries      = mayorEntries;
         this.councilmanEntries = councilmanEntries;
+        this.partyEntries      = partyEntries;
         this.lock            = lock;
         initSounds();
-
 
         number1        = new JLabel("", SwingConstants.CENTER);
         number2        = new JLabel("", SwingConstants.CENTER);
@@ -152,8 +155,8 @@ public class BallotBoxPanel extends JComponent {
             confirmClip.open(confirmIn);
             lastConfirmClip.open(lastConfirmIn);
 
-            confirmIn.close();
-            lastConfirmIn.close();
+            //confirmIn.close();
+            //lastConfirmIn.close();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
@@ -177,12 +180,14 @@ public class BallotBoxPanel extends JComponent {
             Integer i = Integer.parseInt(number1.getText()+number2.getText());
             if(mayorEntries.keySet().contains(i)) {
                 nomeLabel.setText(mayorEntries.get(i));
+                partidoLabel.setText(partyEntries.get(i));
             }
         }
         else {
             Integer i = Integer.parseInt(number1.getText()+number2.getText()+number3.getText()+number4.getText());
             if(councilmanEntries.keySet().contains(i)) {
                 nomeLabel.setText(councilmanEntries.get(i));
+                partidoLabel.setText(partyEntries.get(i));
             }
         }
         number1.setBorder(BorderFactory.createLineBorder(Color.black, 3));
@@ -201,6 +206,7 @@ public class BallotBoxPanel extends JComponent {
         number3.setBorder(BorderFactory.createLineBorder(Color.black, 3));
         number4.setBorder(BorderFactory.createLineBorder(Color.black, 3));
         nomeLabel.setText("");
+        partidoLabel.setText("");
     }
 
     public void branco() {
@@ -213,6 +219,7 @@ public class BallotBoxPanel extends JComponent {
         number3.setBorder(BorderFactory.createLineBorder(Color.black, 3));
         number4.setBorder(BorderFactory.createLineBorder(Color.black, 3));
         nomeLabel.setText("");
+        partidoLabel.setText("");
     }
 
     public void confirma() {
@@ -232,7 +239,9 @@ public class BallotBoxPanel extends JComponent {
             voto[0] = Integer.parseInt(number1.getText()+number2.getText());
             confirmClip.start();
             corrige();
+            Services.printMenu("Vereadores", councilmanEntries);
             candidateLabel.setText("Vereador");
+            partidoLabel.setText("");
         }
         else {
             if(number4.getText().equals("")) {
@@ -289,6 +298,13 @@ public class BallotBoxPanel extends JComponent {
         this.add(numPads[8]);
         this.add(numPads[9]);
         this.add(numPads[0]);
+    }
+
+    public void restartClips() {
+        confirmClip.stop();
+        confirmClip.setMicrosecondPosition(0);
+        lastConfirmClip.stop();
+        lastConfirmClip.setMicrosecondPosition(0);
     }
 
     public boolean isDone() {
