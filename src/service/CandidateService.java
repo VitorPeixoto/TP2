@@ -269,20 +269,18 @@ public class CandidateService implements Services {
                     if(!mail.equals("-1")) {
                         c.setMail(mail);
                     }
-                    System.out.println("Data de Nascimento: ");
-                    String date = pao.next();
+                    String date = Services.readDateAsString("Data de Nascimento: ", "-1");
                     if(!date.equals("-1")) {
                         Date CouncilmanBirthDate = new Date(brazilianToAmerican(date)); // Conversao de string em data
                         c.setBirthDate(CouncilmanBirthDate);
                     }
-                    System.out.println("Partido: ");
-                    int CouncilmanPartyNumber = pao.nextInt();
-                    if(CouncilmanPartyNumber != -1) {
-                        Party CouncilmanParty = partyService.returnExisting(CouncilmanPartyNumber);//Verificar se o partido existe
-                        if (CouncilmanParty == null) {
+                    int councilmanPartyNumber = Services.readInteger("Partido: ");
+                    if(councilmanPartyNumber != -1) {
+                        Party councilmanParty = partyService.returnExisting(councilmanPartyNumber);//Verificar se o partido existe
+                        if (councilmanParty == null) {
                             System.out.println("Partido não encontrado. Não foi possível fazer a alteração.");
                         } else {
-                            c.setParty(CouncilmanParty);
+                            c.setParty(councilmanParty);
                         }
                     }
 

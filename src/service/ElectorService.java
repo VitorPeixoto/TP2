@@ -36,18 +36,13 @@ public class ElectorService implements Services {
         System.out.println("Nome do eleitor: ");
         String electorName = pao.next();
 
-        System.out.println("Data de nascimento: ");
-        String electorBirth = pao.next();
+        String electorBirth   = Services.readDateAsString("Data de nascimento: ");
         Date electorBirthDate = new Date(brazilianToAmerican(electorBirth)); // Conversao de string em data
 
-        System.out.println("Título: ");
-        String electorTitle = pao.next();
+        String electorTitle = Services.readIntegerAsString("Título: ");
 
-        System.out.println("Zona: ");
-        int electorZone = pao.nextInt();
-
-        System.out.println("Seção: ");
-        int electorSection = pao.nextInt();
+        int electorZone    = Services.readInteger("Zona: ");
+        int electorSection = Services.readInteger("Seção: ");
 
         if(verifyExistence(electorTitle)) {
             System.out.println("Título de eleitor já registrado.");
@@ -74,8 +69,7 @@ public class ElectorService implements Services {
 
     @Override
     public void delete() {
-        System.out.println("Digite o título do eleitor: ");
-        String title = pao.next();
+        String title = Services.readIntegerAsString("Digite o título do eleitor: ");
 
         Elector e = returnExistant(title);
         if(e != null){
@@ -120,19 +114,16 @@ public class ElectorService implements Services {
                 if(!name.equals("-1")){
                     e.setName(name);
                 }
-                System.out.println("Data de Nascimento: ");
-                String electorDate = pao.next();
+                String electorDate = Services.readDateAsString("Data de Nascimento: ", "-1");
                 if(!electorDate.equals("-1")){
                     Date electorBirthDate = new Date(brazilianToAmerican(electorDate)); // Conversao de string em data
                     e.setBirthDate(electorBirthDate);
                 }
-                System.out.println("Zona: ");
-                int zone = pao.nextInt();
+                int zone = Services.readInteger("Zona: ");
                 if(zone != -1){
                     e.setZone(zone);
                 }
-                System.out.println("Seção: ");
-                int section = pao.nextInt();
+                int section = Services.readInteger("Seção: ");
                 if(section != -1){
                     e.setSection(section);
                 }

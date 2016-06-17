@@ -33,8 +33,7 @@ public class PartyService implements Services {
     public void register() {
         System.out.println("PARTIDO");
 
-        System.out.println("Número do partido: ");
-        int partyNumber = pao.nextInt();
+        int partyNumber = Services.readInteger("Número do partido: ");
 
         System.out.println("Sigla do partido: ");
         String partyInitials = pao.next();
@@ -53,8 +52,7 @@ public class PartyService implements Services {
 
     @Override
     public void delete() {
-        System.out.println("Digite o número do partido: ");
-        int number = pao.nextInt();
+        int number = Services.readInteger("Digite o número do partido: ");
         Party p = returnExisting(number);
 
         if(p != null) {
@@ -75,8 +73,7 @@ public class PartyService implements Services {
 
     @Override
     public void search() {
-        System.out.println("Digite o número do Partido: ");
-        int number = pao.nextInt();
+        int number = Services.readInteger("Digite o número do partido: ");
         for(Party p : parties){
             if(p.getNumber() == number){
                 System.out.println(p.toString());
@@ -86,8 +83,7 @@ public class PartyService implements Services {
 
     @Override
     public void update() {
-        System.out.println("Digite o número do Partido: ");
-        int number = pao.nextInt();
+        int number = Services.readInteger("Digite o número do partido: ");
         for(Party p : parties){
             if(p.getNumber() == number){
                 System.out.println("Para cada campo, digite o novo elemento ou \"-1\" para pular. ");
